@@ -6,8 +6,10 @@
 # found in ECMAScript/JavaScript code.
 # More details at https://github.com/eslint/eslint
 # and https://eslint.org
+# Run Prettier checks for formatting following ESLint
+# More details at https://prettier.io/
 
-name: ESLint
+name: Lint Checks
 
 on:
   push:
@@ -32,9 +34,15 @@ jobs:
         run: |
           cd tmt-app
           npm install eslint@8.10.0
+          npm install prettier@2.8.4
 
       - name: Run ESLint
         run: npx eslint tmt-app/.
           --config ./tmt-app/.eslintrc.json
           --ext .js,.jsx,.ts,.tsx
+        continue-on-error: true
+
+      - name: Run Prettier
+        run: npx prettier tmt-app/.
+          --check
         continue-on-error: true
