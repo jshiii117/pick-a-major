@@ -30,19 +30,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install ESLint
+      - name: Install ESLint and Prettier
         run: |
           cd tmt-app
-          npm install eslint@8.10.0
-          npm install prettier@2.8.4
+          npm install eslint@8.10.0 prettier@2.8.4
 
       - name: Run ESLint
         run: npx eslint tmt-app/.
           --config ./tmt-app/.eslintrc.json
           --ext .js,.jsx,.ts,.tsx
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Run Prettier
         run: npx prettier tmt-app/.
           --check
-        continue-on-error: true
+        continue-on-error: false
