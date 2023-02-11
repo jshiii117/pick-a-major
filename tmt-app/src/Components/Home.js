@@ -2,12 +2,13 @@ import React from "react";
 import '../Styling/Home.css';
 import {PrimaryBtn, FlexContainer} from '../Styling/CustomStyling.js';
 import {Link, Container, Typography} from '@mui/material';
-import ForwardArrow from '../Images/Forward.png';
 import MilkTeaBlob from '../Images/MilkTeaBlob.png';
 import LycheeRectangle from '../Images/LycheeRectangle.png';
 import MilkTeaSwiggle2 from '../Images/MilkTeaSwiggle2.png';
 import ThaiTeaSwiggle1 from '../Images/ThaiTeaSwiggle1.png';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Breadcrumb from "./Breadcrumb";
+import {Link as RouterLink} from "react-router-dom";
 
 
 
@@ -21,21 +22,7 @@ function Home(){
                 minHeight:"100vh"
             }}
         >
-            <Container>
-                <Container 
-                    sx={{
-                        width:"100%", 
-                        display:"flex", 
-                        alignItems:"center",
-                        textAlign:"center"
-                    }}
-                >
-                    <Typography variant="CustomSubHeading" sx={{color:"BobaHighlight.main"}}>Student Projects</Typography>
-                    <img id="Home_Path_Arrow"src={ForwardArrow} alt="ForwardArrow"/>
-                    <Typography variant="CustomSubHeading" sx={{color:"BobaHighlight.main"}}>Major Picker</Typography>
-                </Container>
-            </Container>
-
+            <Breadcrumb />
             <FlexContainer sx={{paddingY:"6.25rem"}}>
                 <Container 
                     sx={{
@@ -45,7 +32,7 @@ function Home(){
                         minWidth: "1585px",
                         paddingY: "2rem",
                     }}>
-                    <img id="Home_Hero_Background" src={MilkTeaBlob} alt="MilkTeaBlob"/>
+                    <img className="Home_Hero_Background" src={MilkTeaBlob} alt="MilkTeaBlob"/>
                 </Container>
                 <FlexContainer sx={{flexDirection:"column", position:"none"}}>
                     <Container sx={{textAlign:"center", paddingBottom:"1.5rem"}}>
@@ -74,19 +61,19 @@ function Home(){
                     <div className="Home_Button_Bg_Left">
                         <img 
                             src={LycheeRectangle} 
-                            id="Home_Button_Bg_Img1" 
+                            className="Home_Button_Bg_Img1" 
                             alt="LycheeRectangle"
                         />
                         <img 
                             src={MilkTeaSwiggle2} 
-                            id="Home_Button_Bg_Img2" 
+                            className="Home_Button_Bg_Img2" 
                             alt="MilkTeaSwiggle2"
                         />
                     </div>
                     <div className="Home_Button_Bg_Right">
                         <img 
                             src={ThaiTeaSwiggle1} 
-                            id="Home_Button_Bg_Img3" 
+                            className="Home_Button_Bg_Img3" 
                             alt="ThaiTeaSwiggle1"
                         />
                     </div>
@@ -103,14 +90,15 @@ function Home(){
                         </Typography>
                     </PrimaryBtn>
  
-                    <div id="Home_Button_Main_Link">
+                    <div className="Home_Button_Main_Link">
                         <Link
                             sx={{color:"Boba.main"}}
                             underline="none"
-                            href="google.com" 
                             target="_blank"
                             rel="noopener noreferrer" 
                             aria-label="Learn more about other different majors"
+                            component={RouterLink}
+                            to="/guide"
                         >
                             <Typography variant="CustomSubHeading">
                                 See all Majors/Careers

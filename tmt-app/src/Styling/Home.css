@@ -1,14 +1,7 @@
 /*
- Styling For home path arrow SVG
-*/
-#Home_Path_Arrow{
-    width: 24px;
-    margin: 0 16px;
-}
-/*
  Styling for Home background image
 */
-#Home_Hero_Background{
+.Home_Hero_Background{
     position: relative;
     top: 0;
     width: 100%;
@@ -18,7 +11,7 @@
 /*
     Home page Buttons Stlying
 */
-#Home_Button_Main_Link{
+.Home_Button_Main_Link{
     text-decoration: underline;
     display: flex;
     align-items: center;
@@ -36,19 +29,19 @@
     position: relative;
     right: -2.5%;
 }
-#Home_Button_Bg_Img1{
+.Home_Button_Bg_Img1{
     width: 150%;
     vertical-align: middle;
     transform: rotate(133.23deg);
 }
-#Home_Button_Bg_Img2{
+.Home_Button_Bg_Img2{
     width: 250%;
     transform: rotate(32.27deg);
     position: absolute;
     left: -60%;
     top: 15%;
 }
-#Home_Button_Bg_Img3{
+.Home_Button_Bg_Img3{
     width: 100%;
     transform: rotate(-33.7deg);
 }
