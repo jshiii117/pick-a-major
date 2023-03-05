@@ -26,6 +26,9 @@ export const CustomTheme = createTheme({
     Boba: {
       main: "#1B1D2E",
     },
+    TestBackgroundColor: {
+      main: "rgba(100, 50, 150, 0.2)",
+    },
   },
   typography: {
     CustomTitle: {

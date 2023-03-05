@@ -5,7 +5,7 @@ import {
   FlexContainer,
   CustomTheme,
 } from "../Styling/CustomStyling.js";
-import { Link, Container, Typography, Grid, Paper } from "@mui/material";
+import { Link, Container, Typography, Grid, Button } from "@mui/material";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
@@ -15,50 +15,78 @@ import Breadcrumb from "./Breadcrumb";
 import { Link as RouterLink } from "react-router-dom";
 import styled from "@emotion/styled";
 import { COURSEINFO } from "../Data/constants";
+import HexagonIcon from "@mui/icons-material/Hexagon";
 // import { FlipIcon } from "@mui/icons-material/Flip"
 
 const CourseItem = ({ course }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => {
+    setIsHovered(true);
+  };
+
+  const handleLeave = () => {
+    setIsHovered(false);
+  };
+
+  const style = {
+    margin: "1rem",
+    padding: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "1rem",
+    width: "320px",
+    height: isHovered ? "204px" : "208px",
+    background: isHovered ? "white" : "#616587",
+    color: isHovered ? "black" : "white",
+    boxShadow: "6px 6px 16px rgba(0, 0, 0, 0.16)",
+    borderRadius: "36px",
+    flex: "none",
+    order: 3,
+    flexGrow: 0,
+    border: isHovered ? "12px solid #800000" : "none",
+    transition: "all 0.3s ease-in-out",
+  };
+
   return (
     <Grid
       item
       lg={3}
       key={course.title}
-      // sx={{
-      //   backgroundColor: "rgba(97, 101, 135, 1)",
-      //   borderRadius: "16px",
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      //   padding: "1rem",
-      //   margin: "1rem",
-      //   minWidth: "300",
-      //   minHeight: "200",
-      // }}
-      style={{
-        margin: "1rem",
-        padding: "1rem",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        // padding: "38px 0px",
-        gap: "1rem",
-        width: "320px",
-        height: "208px",
-        background: "#616587",
-        boxShadow: "4px 4px 16px rgba(0, 0, 0, 0.16)",
-        borderRadius: "36px",
-        flex: "none",
-        order: 3,
-        flexGrow: 0,
-      }}
+      onMouseOver={handleHover}
+      onMouseLeave={handleLeave}
+      style={style}
     >
-      <Typography variant="CustomHeading3" style={{ color: "white" }}>
-        {course.title}
-      </Typography>
+      {isHovered ? (
+        <>
+          <Typography variant="CustomHeading3" style={{ color: "black" }}>
+            {course.title}
+          </Typography>
+          <Typography
+            variant="CustomHeading4"
+            style={{ color: "black", textAlign: "center" }}
+          >
+            {course.info}
+          </Typography>
+        </>
+      ) : (
+        <>
+          <HexagonIcon
+            color="BTMilkTea"
+            fontSize="large"
+            style={{ marginRight: 8 }}
+          />
+          <Typography variant="CustomHeading3" style={{ color: "white" }}>
+            {course.title}
+          </Typography>
+        </>
+      )}
     </Grid>
   );
 };
+
 function QuestionOnePage() {
   return (
     <Container
@@ -70,11 +98,7 @@ function QuestionOnePage() {
       }}
     >
       <Breadcrumb />
-      <Container
-        width="80%"
-        backgroundColor="gold"
-        sx={{ paddingY: "6.25rem", minWidth: "300" }}
-      >
+      <Container sx={{ paddingY: "6.25rem", minWidth: "300" }}>
         <Grid direction="column">
           <Container
             sx={{
@@ -96,7 +120,7 @@ function QuestionOnePage() {
               container
               display="flex"
               sx={{
-                backgroundColor: "red",
+                backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
                 justifyContent: "center",
                 alignContent: "center",
               }}
@@ -105,6 +129,23 @@ function QuestionOnePage() {
                 <CourseItem key={course.title} course={course} />
               ))}
             </Grid>
+            <div style={{ height: 20 }} />
+            <Container
+              style={{
+                width: "80%",
+                backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+              }}
+            >
+              <Grid
+                container
+                direction="row"
+                display="flex"
+                justifyContent="space-evenly"
+              >
+                <CustomButton buttonText={"Back"} />
+                <CustomButton buttonText={"Continue"} />
+              </Grid>
+            </Container>
           </Container>
         </Grid>
       </Container>
@@ -144,45 +185,37 @@ function QuestionOnePage() {
 
 export default QuestionOnePage;
 
-function UniversityClassItem(props) {
-  const StyledGridItem = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(2),
-    textAlign: "center",
-    border: `4px solid ${theme.palette.secondary.light}`,
-    borderRadius: "4px",
-    transition: "transform 0.5s",
-    "&:hover": {
-      transform: "rotateY(180deg)",
-    },
-  }));
-
-  const StyledFlipItem = styled(StyledGridItem)({
-    transform: "rotateY(180deg)",
-  });
-
-  function MyGridItem() {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleClick = () => {
-      setIsFlipped(!isFlipped);
-    };
-
-    return (
-      <>
-        <Typography>Hello there</Typography>
-        {isFlipped ? (
-          <StyledFlipItem>
-            {/* <img src=`${props.courseIcon}` */}
-            <Typography variant="h5">{props.courseTitle}</Typography>
-            {/* <FlipIcon /> */}
-          </StyledFlipItem>
-        ) : (
-          <StyledGridItem md={12} lg={12} xl={12} onClick={handleClick}>
-            <Typography variant="h4">{props.courseTitle}</Typography>
-            <Typography variant="body1">{props.courseInfo}</Typography>
-          </StyledGridItem>
-        )}
-      </>
-    );
-  }
-}
+const CustomButton = ({ buttonText }) => {
+  return (
+    <Button
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 2,
+        width: 350,
+        height: 100,
+        backgroundColor: "#FFFFFF",
+        border: "4px solid #73956F",
+        borderRadius: 2,
+        flex: "none",
+        order: 0,
+        flexGrow: 0,
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#800000",
+          border: "4px solid #800000",
+          "& > .MuiTypography-root": {
+            color: "#FFFFFF",
+          },
+        },
+      }}
+      variant="contained"
+    >
+      <Typography variant="CustomHeading2" sx={{ color: "#73956F" }}>
+        {buttonText}
+      </Typography>
+    </Button>
+  );
+};
