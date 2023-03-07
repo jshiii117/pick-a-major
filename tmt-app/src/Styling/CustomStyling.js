@@ -189,35 +189,37 @@ export const InversePrimaryButton = ({ buttonText, onClick }) => {
   );
 };
 
-export const PrimaryButton = ({ buttonText, onClick }) => {
+export const PrimaryButton = ({ buttonText, onClick, maxWidth }) => {
+  const sx = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 2,
+    width: 350,
+    height: 100,
+    backgroundColor: CustomTheme.palette.Matcha.main,
+    border: "4px solid #FFFFFF",
+    borderRadius: 2,
+    flex: "none",
+    order: 0,
+    flexGrow: 0,
+    textTransform: "none",
+    "&:hover": {
+      backgroundColor: "#800000",
+      border: "4px solid #800000",
+      "& > .MuiTypography-root": {
+        color: "#FFFFFF",
+      },
+    },
+  };
+
+  if (maxWidth) {
+    sx.maxWidth = maxWidth;
+  }
+
   return (
-    <Button
-      onClick={onClick}
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 2,
-        width: 350,
-        height: 100,
-        backgroundColor: CustomTheme.palette.Matcha.main,
-        border: "4px solid #FFFFFF",
-        borderRadius: 2,
-        flex: "none",
-        order: 0,
-        flexGrow: 0,
-        textTransform: "none",
-        "&:hover": {
-          backgroundColor: "#800000",
-          border: "4px solid #800000",
-          "& > .MuiTypography-root": {
-            color: "#FFFFFF",
-          },
-        },
-      }}
-      variant="contained"
-    >
+    <Button onClick={onClick} sx={sx} variant="contained">
       <Typography variant="CustomHeading2" sx={{ color: "#FFFFFF" }}>
         {buttonText}
       </Typography>
