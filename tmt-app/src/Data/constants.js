@@ -162,7 +162,7 @@ export const CAREERSINFO = [
   },
 ];
 
-export const ALLPAGES = [
+export const LEARNMOREPAGES = [
   {
     pageName: "About",
     pageLink: "/about",
@@ -170,5 +170,49 @@ export const ALLPAGES = [
   {
     pageName: "Resources",
     pageLink: "/resources",
+  },
+];
+
+export const GETINTOUCHPAGES = [
+  {
+    pageName: "Contact",
+    pageLink: "/contact",
+  },
+  {
+    pageName: "F.A.Q.",
+    pageLink: "/faq",
+  },
+  {
+    pageName: "Partners",
+    pageLink: "/partners",
+  },
+];
+
+export const MAJORGUIDETEAM = [
+  {
+    teamName: "Product Management",
+    members: [
+      { name: "Krystal Nguyen", role: "Product Manager" },
+      { name: "Brian Miki", role: "Product Manager" },
+    ],
+  },
+  {
+    teamName: "UX/UI",
+    members: [
+      { name: "Amie Trang", role: "Lead UX/UI Designer" },
+      { name: "Judy Nguyen", role: "UX Analyst" },
+      { name: "Sing Cheer To", role: "Support UX/UI Designer" },
+      { name: "Gary Stein", role: "Lead UX Researcher" },
+      { name: "Alex Lee", role: "Support UX Researcher" },
+    ],
+  },
+  {
+    teamName: "Development",
+    members: [
+      { name: "Advait Patel", role: "Developer" },
+      { name: "James Shi", role: "Developer" },
+      { name: "Raymond", role: "Developer" },
+      { name: "Razi Syed", role: "Developer" },
+    ],
   },
 ];
