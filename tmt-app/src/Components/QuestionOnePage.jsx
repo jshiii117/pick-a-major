@@ -103,9 +103,9 @@ function Questions() {
 
   const renderView = () => {
     switch (view) {
-      case 1:
+      case 0:
         return <QuestionOne />;
-      case 2:
+      case 1:
         return <QuestionTwo />;
       default:
         return null;
