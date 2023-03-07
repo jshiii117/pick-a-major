@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import "../Styling/Home.css";
 import {
-  PrimaryBtn,
   FlexContainer,
   CustomTheme,
+  PrimaryButton,
+  InversePrimaryButton,
+  SecondaryButton,
 } from "../Styling/CustomStyling.js";
-import { Link, Container, Typography, Grid, Button } from "@mui/material";
+import { Container, Typography, Grid } from "@mui/material";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
 import ThaiTeaSwiggle1 from "../Images/ThaiTeaSwiggle1.png";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import Breadcrumb from "./Breadcrumb";
-import { Link as RouterLink } from "react-router-dom";
-import styled from "@emotion/styled";
-import { COURSEINFO } from "../Data/constants";
+import { COURSEINFO, SOFTSKILLINFO } from "../Data/constants";
 import HexagonIcon from "@mui/icons-material/Hexagon";
+import DiscreteProgressBar from "./ProgressBar";
+import BobaBot from "../Images/BobaBot.png";
+import BobaBot1 from "../Images/BobaBot1.png";
 // import { FlipIcon } from "@mui/icons-material/Flip"
 
-const CourseItem = ({ course }) => {
+const QuestionItem = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleHover = () => {
@@ -30,15 +31,15 @@ const CourseItem = ({ course }) => {
   };
 
   const style = {
-    margin: "1rem",
+    margin: "0.6rem",
     padding: "1rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     gap: "1rem",
-    width: "320px",
-    height: isHovered ? "204px" : "208px",
+    width: "240px",
+    height: isHovered ? "148px" : "152px",
     background: isHovered ? "white" : "#616587",
     color: isHovered ? "black" : "white",
     boxShadow: "6px 6px 16px rgba(0, 0, 0, 0.16)",
@@ -54,7 +55,7 @@ const CourseItem = ({ course }) => {
     <Grid
       item
       lg={3}
-      key={course.title}
+      key={item.title}
       onMouseOver={handleHover}
       onMouseLeave={handleLeave}
       style={style}
@@ -62,13 +63,13 @@ const CourseItem = ({ course }) => {
       {isHovered ? (
         <>
           <Typography variant="CustomHeading3" style={{ color: "black" }}>
-            {course.title}
+            {item.title}
           </Typography>
           <Typography
             variant="CustomHeading4"
             style={{ color: "black", textAlign: "center" }}
           >
-            {course.info}
+            {item.info}
           </Typography>
         </>
       ) : (
@@ -79,7 +80,7 @@ const CourseItem = ({ course }) => {
             style={{ marginRight: 8 }}
           />
           <Typography variant="CustomHeading3" style={{ color: "white" }}>
-            {course.title}
+            {item.title}
           </Typography>
         </>
       )}
@@ -87,17 +88,40 @@ const CourseItem = ({ course }) => {
   );
 };
 
-function QuestionOnePage() {
+function Questions() {
+  const [view, setView] = useState(0);
+
+  const onContinue = () => {
+    console.log("handle onContinue");
+    setView(view + 1);
+  };
+
+  const onBack = () => {
+    console.log("handle onBack");
+    setView(view - 1);
+  };
+
+  const renderView = () => {
+    switch (view) {
+      case 1:
+        return <QuestionOne />;
+      case 2:
+        return <QuestionTwo />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <Container
       sx={{
         minWidth: "100%",
-        paddingTop: "7.5rem",
+        // paddingTop: "7.5rem",
         overflow: "hidden",
         minHeight: "100vh",
       }}
     >
-      <Breadcrumb />
+      {/* <Breadcrumb /> */}
       <Container sx={{ paddingY: "6.25rem", minWidth: "300" }}>
         <Grid direction="column">
           <Container
@@ -115,37 +139,49 @@ function QuestionOnePage() {
               alt="MilkTeaBlob"
             />
           </Container>
-          <Container width="100%" height="100%">
+          {/*Back button and progress bar */}
+          <Container
+            style={{
+              width: "85%",
+              backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+            }}
+          >
             <Grid
               container
+              direction="row"
               display="flex"
               sx={{
-                backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
-                justifyContent: "center",
-                alignContent: "center",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
-              {COURSEINFO.map((course) => (
-                <CourseItem key={course.title} course={course} />
-              ))}
-            </Grid>
-            <div style={{ height: 20 }} />
-            <Container
-              style={{
-                width: "80%",
-                backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
-              }}
-            >
-              <Grid
-                container
-                direction="row"
-                display="flex"
-                justifyContent="space-evenly"
-              >
-                <CustomButton buttonText={"Back"} />
-                <CustomButton buttonText={"Continue"} />
+              <Grid item>
+                <SecondaryButton buttonText={"Back"} onClick={onBack} />
               </Grid>
-            </Container>
+              <Grid item>
+                <DiscreteProgressBar />
+              </Grid>
+            </Grid>
+          </Container>
+          <div style={{ height: 60 }} />
+          {renderView()}
+          <div style={{ height: 20 }} />
+          {/*Back and Continue buttons*/}
+          <Container
+            style={{
+              width: "80%",
+              backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+            }}
+          >
+            <Grid
+              container
+              direction="row"
+              display="flex"
+              justifyContent="space-evenly"
+            >
+              <InversePrimaryButton buttonText={"Back"} onClick={onBack} />
+              <PrimaryButton buttonText={"Continue"} onClick={onContinue} />
+            </Grid>
           </Container>
         </Grid>
       </Container>
@@ -183,39 +219,156 @@ function QuestionOnePage() {
   );
 }
 
-export default QuestionOnePage;
+export default Questions;
 
-const CustomButton = ({ buttonText }) => {
+function QuestionOne() {
   return (
-    <Button
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 2,
-        width: 350,
-        height: 100,
-        backgroundColor: "#FFFFFF",
-        border: "4px solid #73956F",
-        borderRadius: 2,
-        flex: "none",
-        order: 0,
-        flexGrow: 0,
-        textTransform: "none",
-        "&:hover": {
-          backgroundColor: "#800000",
-          border: "4px solid #800000",
-          "& > .MuiTypography-root": {
-            color: "#FFFFFF",
-          },
-        },
-      }}
-      variant="contained"
-    >
-      <Typography variant="CustomHeading2" sx={{ color: "#73956F" }}>
-        {buttonText}
-      </Typography>
-    </Button>
+    <React.Fragment>
+      {/*Short text summary and icon */}
+      <Container
+        style={{
+          width: "85%",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          display="flex"
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Grid item>
+            <Grid container direction="column" display="flex">
+              <Typography variant="CustomHeading2">
+                Let&apos;s order some boba! Pick your base(s).
+              </Typography>
+              <div style={{ height: 30 }} />
+              <Typography variant="CustomHeading2">
+                What university classes sound interesting to you?
+              </Typography>
+              <Typography
+                variant="CustomSubHeading"
+                color={CustomTheme.palette.ThaiTea.main}
+              >
+                Select more than 3.
+              </Typography>
+              <div style={{ height: 40 }} />
+            </Grid>
+          </Grid>
+          <Grid item alignSelf="start">
+            <Container
+              style={{
+                minWidth: 140,
+                minHeight: 180,
+                backgroundColor: CustomTheme.palette.ThaiTea.main,
+              }}
+            >
+              <img src={BobaBot} alt="BobaBot" />
+            </Container>
+          </Grid>
+        </Grid>
+      </Container>
+      <div style={{ height: 20 }} />
+      {/*Selection area*/}
+      <Container
+        style={{
+          width: "90%",
+
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          display="flex"
+          sx={{
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          {COURSEINFO.map((course) => (
+            <QuestionItem key={course.title} item={course} />
+          ))}
+        </Grid>
+      </Container>
+    </React.Fragment>
   );
-};
+}
+
+function QuestionTwo() {
+  return (
+    <React.Fragment>
+      {/*Short text summary and icon */}
+      <Container
+        style={{
+          width: "85%",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          display="flex"
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Grid item>
+            <Grid container direction="column" display="flex">
+              <Typography variant="CustomHeading2">
+                Pick your toppings and add-ons.
+              </Typography>
+              <div style={{ height: 30 }} />
+              <Typography variant="CustomHeading2">
+                What skills would you like to use in a career?
+              </Typography>
+              <Typography
+                variant="CustomSubHeading"
+                color={CustomTheme.palette.ThaiTea.main}
+              >
+                Select more than one.
+              </Typography>
+              <div style={{ height: 40 }} />
+            </Grid>
+          </Grid>
+          <Grid item alignSelf="start">
+            <Container
+              style={{
+                minWidth: 140,
+                minHeight: 180,
+                backgroundColor: CustomTheme.palette.ThaiTea.main,
+              }}
+            >
+              <img src={BobaBot1} alt="BobaBot" />
+            </Container>
+          </Grid>
+        </Grid>
+      </Container>
+      <div style={{ height: 20 }} />
+      {/*Selection area*/}
+      <Container
+        style={{
+          width: "90%",
+
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          display="flex"
+          sx={{
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          {SOFTSKILLINFO.map((skill) => (
+            <QuestionItem key={skill.title} item={skill} />
+          ))}
+        </Grid>
+      </Container>
+    </React.Fragment>
+  );
+}
