@@ -5,7 +5,7 @@ import { CustomTheme } from "./Styling/CustomStyling.js";
 import { ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CareerGuide from "./Components/CareerGuide";
-import QuestionOnePage from "./Components/QuestionOnePage";
+import Questions from "./Components/QuestionOnePage";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/questionOne",
-    element: <QuestionOnePage />,
+    element: <Questions />,
   },
 ]);
 

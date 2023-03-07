@@ -1,4 +1,6 @@
 import { styled, Button, Container, createTheme } from "@mui/material";
+import React from "react";
+import { Typography } from "@mui/material";
 
 export const CustomTheme = createTheme({
   palette: {
@@ -150,3 +152,111 @@ export const FlexContainer = styled(Container)({
   justifyContent: "center",
   minWidth: "100%",
 });
+
+export const InversePrimaryButton = ({ buttonText, onClick }) => {
+  return (
+    <Button
+      onClick={onClick}
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 2,
+        width: 350,
+        height: 100,
+        backgroundColor: "#FFFFFF",
+        border: "4px solid #73956F",
+        borderRadius: 2,
+        flex: "none",
+        order: 0,
+        flexGrow: 0,
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#800000",
+          border: "4px solid #800000",
+          "& > .MuiTypography-root": {
+            color: "#FFFFFF",
+          },
+        },
+      }}
+      variant="contained"
+    >
+      <Typography variant="CustomHeading2" sx={{ color: "#73956F" }}>
+        {buttonText}
+      </Typography>
+    </Button>
+  );
+};
+
+export const PrimaryButton = ({ buttonText, onClick }) => {
+  return (
+    <Button
+      onClick={onClick}
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 2,
+        width: 350,
+        height: 100,
+        backgroundColor: CustomTheme.palette.Matcha.main,
+        border: "4px solid #FFFFFF",
+        borderRadius: 2,
+        flex: "none",
+        order: 0,
+        flexGrow: 0,
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#800000",
+          border: "4px solid #800000",
+          "& > .MuiTypography-root": {
+            color: "#FFFFFF",
+          },
+        },
+      }}
+      variant="contained"
+    >
+      <Typography variant="CustomHeading2" sx={{ color: "#FFFFFF" }}>
+        {buttonText}
+      </Typography>
+    </Button>
+  );
+};
+
+export const SecondaryButton = ({ buttonText, onClick }) => {
+  return (
+    <Button
+      onClick={onClick}
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 2,
+        width: 160,
+        height: 80,
+        backgroundColor: CustomTheme.palette.Matcha.main,
+        border: "4px solid #FFFFFF",
+        borderRadius: 2,
+        flex: "none",
+        order: 0,
+        flexGrow: 0,
+        textTransform: "none",
+        "&:hover": {
+          backgroundColor: "#800000",
+          border: "4px solid #800000",
+          "& > .MuiTypography-root": {
+            color: "#FFFFFF",
+          },
+        },
+      }}
+      variant="contained"
+    >
+      <Typography variant="CustomHeading2" sx={{ color: "#FFFFFF" }}>
+        {buttonText}
+      </Typography>
+    </Button>
+  );
+};
