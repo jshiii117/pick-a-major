@@ -13,9 +13,20 @@ import ThaiTeaSwiggle1 from "../Images/ThaiTeaSwiggle1.png";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Breadcrumb from "./Breadcrumb";
 import { Link as RouterLink } from "react-router-dom";
-import { ALLPAGES, CAREERSINFO, MAJORSINFO } from "../Data/constants";
+import {
+  LEARNMOREPAGES,
+  CAREERSINFO,
+  MAJORSINFO,
+  GETINTOUCHPAGES,
+  MAJORGUIDETEAM,
+} from "../Data/constants";
 import BobaBot3 from "../Images/BobaBot3.png";
 import FooterBackground from "../Images/FooterBackground.png";
+import BTLogo from "../Images/BTLogo.png";
+import DiscordIcon from "../Images/DiscordIcon.png";
+import InstagramIcon from "../Images/InstagramIcon.png";
+import LinkedInIcon from "../Images/LinkedInIcon.png";
+import YouTubeIcon from "../Images/YouTubeIcon.png";
 
 function Home() {
   return (
@@ -149,46 +160,7 @@ function Home() {
             </Grid>
           </Grid>
         </Container>
-        <Container
-          sx={{
-            position: "absolute",
-            marginTop: "15rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            minWidth: "100vw",
-            maxWidth: "100vw",
-            height: "10%",
-            backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
-          }}
-        >
-          <img
-            src={FooterBackground}
-            alt="FooterBackground"
-            style={{ width: "100vw", position: "absolute", zIndex: -1 }}
-          />
-          <Grid
-            container
-            display="flex"
-            direction="row"
-            style={{ minHeight: "100%" }}
-          >
-            <Grid item>
-              <Grid container display="flex" direction="column"></Grid>
-              <Typography variant="CustomHeading2">Main Links</Typography>
-              <Grid container display="flex" direction="row">
-                <Grid container display="flex" direction="column">
-                  <Typography variant="CustomSubHeading">Learn More</Typography>
-                  {ALLPAGES.map((page) => (
-                    <Typography key={page.pageName} style={{ marginBottom: 8 }}>
-                      {page.pageName}
-                    </Typography>
-                  ))}
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
+        <Footer />
       </Container>
     </React.Fragment>
   );
@@ -269,6 +241,125 @@ function MajorGuide() {
         <div style={{ height: 40 }} />
         <Grid item>
           <PrimaryButton buttonText={"Take The Quiz"} maxWidth={300} />
+        </Grid>
+      </Grid>
+    </Container>
+  );
+}
+
+function Footer() {
+  return (
+    <Container
+      sx={{
+        marginTop: "15rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "end",
+        minWidth: "100vw",
+        maxWidth: "100vw",
+        height: "100%",
+        backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+      }}
+    >
+      {/*Background*/}
+      <img
+        src={FooterBackground}
+        alt="FooterBackground"
+        style={{ width: "100vw", position: "absolute", zIndex: -1 }}
+      />
+      {/*Content*/}
+      <Grid
+        container
+        display="flex"
+        direction="row"
+        style={{
+          height: "20%",
+          flexWrap: "wrap",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        {/*Socials*/}
+        <Grid item>
+          <Grid container display="flex" direction="column">
+            <img src={BTLogo} alt="BTLogo" />
+            <Typography variant="CustomHeading2">
+              Check us out on our socials
+            </Typography>
+            <Grid
+              container
+              display="flex"
+              direction="row"
+              style={{ justifyContent: "center" }}
+            >
+              <Grid item>
+                <img src={DiscordIcon} alt="Discord Logo" />
+              </Grid>
+              <Grid item>
+                <img src={InstagramIcon} alt="Instagram Logo" />
+              </Grid>
+              <Grid item>
+                <img src={LinkedInIcon} alt="LinkedIn Logo" />
+              </Grid>
+              <Grid item>
+                <img src={YouTubeIcon} alt="YouTube Logo" />
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        {/*Main Links*/}
+        <Grid item>
+          <Grid container display="flex" direction="column"></Grid>
+          <Typography variant="CustomHeading2">Main Links</Typography>
+          <Grid container display="flex" direction="row">
+            <Grid item>
+              <Grid container display="flex" direction="column">
+                <Typography variant="CustomBody" style={{ fontWeight: "bold" }}>
+                  Learn More
+                </Typography>
+                {LEARNMOREPAGES.map((page) => (
+                  <Typography key={page.pageName} variant="CustomBody">
+                    {page.pageName}
+                  </Typography>
+                ))}
+              </Grid>
+            </Grid>
+            <div style={{ width: 20 }} />
+            <Grid item>
+              <Grid container display="flex" direction="column">
+                <Typography variant="CustomBody" style={{ fontWeight: "bold" }}>
+                  Get in Touch
+                </Typography>
+                {GETINTOUCHPAGES.map((page) => (
+                  <Typography key={page.pageName} variant="CustomBody">
+                    {page.pageName}
+                  </Typography>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        {/*Major Team Guide*/}
+        <Grid item>
+          <Grid container display="flex" direction="column">
+            <Typography variant="CustomHeading2">Major Team Guide</Typography>
+            <Grid container display="flex" direction="column">
+              {MAJORGUIDETEAM.map((team, index) => (
+                <React.Fragment key={index}>
+                  {team.members.map((member) => (
+                    <Typography key={member.name} variant="CustomBody">
+                      <span style={{ fontWeight: "bold" }}>{member.role}</span>{" "}
+                      {member.name}
+                    </Typography>
+                  ))}
+                  {index !== MAJORGUIDETEAM.length - 1 && (
+                    <div style={{ height: 20 }} />
+                  )}
+                </React.Fragment>
+              ))}
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
