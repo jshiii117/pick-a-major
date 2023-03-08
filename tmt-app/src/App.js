@@ -5,7 +5,7 @@ import { CustomTheme } from "./Styling/CustomStyling.js";
 import { ThemeProvider } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CareerGuide from "./Components/CareerGuide";
-import Questions from "./Components/QuestionOnePage";
+import Questions from "./Components/Questions";
 
 const router = createBrowserRouter([
   {

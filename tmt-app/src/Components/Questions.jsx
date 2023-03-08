@@ -104,9 +104,11 @@ function Questions() {
   const renderView = () => {
     switch (view) {
       case 0:
-        return <QuestionOne />;
+        return <QuestionOne onBack={onBack} onContinue={onContinue} />;
       case 1:
-        return <QuestionTwo />;
+        return <QuestionTwo onBack={onBack} onContinue={onContinue} />;
+      case 2:
+        return <QuestionResults onBack={onBack} onContinue={onContinue} />;
       default:
         return null;
     }
@@ -165,24 +167,6 @@ function Questions() {
           </Container>
           <div style={{ height: 60 }} />
           {renderView()}
-          <div style={{ height: 20 }} />
-          {/*Back and Continue buttons*/}
-          <Container
-            style={{
-              width: "80%",
-              backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
-            }}
-          >
-            <Grid
-              container
-              direction="row"
-              display="flex"
-              justifyContent="space-evenly"
-            >
-              <InversePrimaryButton buttonText={"Back"} onClick={onBack} />
-              <PrimaryButton buttonText={"Continue"} onClick={onContinue} />
-            </Grid>
-          </Container>
         </Grid>
       </Container>
       <FlexContainer sx={{ flexDirection: "row" }}>
@@ -214,6 +198,7 @@ function Questions() {
             />
           </div>
         </FlexContainer>
+        <CustomFooter 
       </FlexContainer>
     </Container>
   );
@@ -221,7 +206,7 @@ function Questions() {
 
 export default Questions;
 
-function QuestionOne() {
+function QuestionOne({ onBack, onContinue }) {
   return (
     <React.Fragment>
       {/*Short text summary and icon */}
@@ -293,11 +278,29 @@ function QuestionOne() {
           ))}
         </Grid>
       </Container>
+      <div style={{ height: 20 }} />
+      {/*Back and Continue buttons*/}
+      <Container
+        style={{
+          width: "80%",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          display="flex"
+          justifyContent="space-evenly"
+        >
+          <InversePrimaryButton buttonText={"Back"} onClick={onBack} />
+          <PrimaryButton buttonText={"Continue"} onClick={onContinue} />
+        </Grid>
+      </Container>
     </React.Fragment>
   );
 }
 
-function QuestionTwo() {
+function QuestionTwo({ onBack, onContinue }) {
   return (
     <React.Fragment>
       {/*Short text summary and icon */}
@@ -344,6 +347,76 @@ function QuestionTwo() {
             >
               <img src={BobaBot1} alt="BobaBot" />
             </Container>
+          </Grid>
+        </Grid>
+      </Container>
+      <div style={{ height: 20 }} />
+      {/*Selection area*/}
+      <Container
+        style={{
+          width: "90%",
+
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          display="flex"
+          sx={{
+            justifyContent: "center",
+            alignContent: "center",
+          }}
+        >
+          {SOFTSKILLINFO.map((skill) => (
+            <QuestionItem key={skill.title} item={skill} />
+          ))}
+        </Grid>
+      </Container>
+      <div style={{ height: 20 }} />
+      {/*Back and Continue buttons*/}
+      <Container
+        style={{
+          width: "80%",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          display="flex"
+          justifyContent="space-evenly"
+        >
+          <InversePrimaryButton buttonText={"Back"} onClick={onBack} />
+          <PrimaryButton buttonText={"Continue"} onClick={onContinue} />
+        </Grid>
+      </Container>
+    </React.Fragment>
+  );
+}
+
+function QuestionResults({ onBack, onContinue }) {
+  return (
+    <React.Fragment>
+      {/*Short text summary and icon */}
+      <Container
+        style={{
+          width: "85%",
+          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+        }}
+      >
+        <Grid
+          container
+          direction="column"
+          display="flex"
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Grid item>
+            <Typography variant="CustomHeading2">
+              Thank you for your order! Below are your results.
+            </Typography>
           </Grid>
         </Grid>
       </Container>
