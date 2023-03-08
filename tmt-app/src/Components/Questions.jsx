@@ -17,6 +17,7 @@ import HexagonIcon from "@mui/icons-material/Hexagon";
 import DiscreteProgressBar from "./ProgressBar";
 import BobaBot from "../Images/BobaBot.png";
 import BobaBot1 from "../Images/BobaBot1.png";
+import CustomFooter from "./CustomFooter";
 // import { FlipIcon } from "@mui/icons-material/Flip"
 
 const QuestionItem = ({ item }) => {
@@ -198,7 +199,7 @@ function Questions() {
             />
           </div>
         </FlexContainer>
-        <CustomFooter 
+        <CustomFooter />
       </FlexContainer>
     </Container>
   );
