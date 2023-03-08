@@ -284,7 +284,10 @@ function Footer() {
         <Grid item>
           <Grid container display="flex" direction="column">
             <img src={BTLogo} alt="BTLogo" />
-            <Typography variant="CustomHeading2">
+            <Typography
+              variant="CustomHeading3"
+              style={{ alignSelf: "center" }}
+            >
               Check us out on our socials
             </Typography>
             <Grid
