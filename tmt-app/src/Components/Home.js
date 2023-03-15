@@ -27,6 +27,7 @@ import DiscordIcon from "../Images/DiscordIcon.png";
 import InstagramIcon from "../Images/InstagramIcon.png";
 import LinkedInIcon from "../Images/LinkedInIcon.png";
 import YouTubeIcon from "../Images/YouTubeIcon.png";
+import CustomFooter from "./CustomFooter";
 
 function Home() {
   return (
