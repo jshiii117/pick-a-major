@@ -7,7 +7,14 @@ import {
   InversePrimaryButton,
   SecondaryButton,
 } from "../Styling/CustomStyling.js";
-import { Container, Typography, Grid } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Grid,
+  Stack,
+  Paper,
+  Divider,
+} from "@mui/material";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
@@ -401,48 +408,186 @@ function QuestionResults({ onBack, onContinue }) {
       {/*Short text summary and icon */}
       <Container
         style={{
-          width: "85%",
-          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+          maxWidth: "80%",
+          minHeight: "1000px",
         }}
       >
-        <Grid
+        <Stack
           container
           direction="column"
           display="flex"
           sx={{
+            maxWidth: "100%",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          <Grid item>
-            <Typography variant="CustomHeading2">
-              Thank you for your order! Below are your results.
-            </Typography>
-          </Grid>
-        </Grid>
+          <Typography variant="CustomHeading2">
+            Thank you for your order! Below are your results.
+          </Typography>
+          <Stack
+            container
+            direction="row"
+            display="flex"
+            sx={{
+              minWidth: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+              backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+            }}
+          >
+            <PaperComponent styles={styles.paperOne} />
+
+            <Stack container direction="column" display="flex">
+              <PrimaryButton buttonText={"Explore Majors"} onClick={{}} />
+              <div style={{ height: 40 }} />
+              <Container
+                sx={{
+                  minWidth: 140,
+                  minHeight: 180,
+                  backgroundColor: CustomTheme.palette.ThaiTea.main,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={BobaBot} alt="BobaBot" />
+              </Container>{" "}
+            </Stack>
+          </Stack>
+        </Stack>
       </Container>
       <div style={{ height: 20 }} />
-      {/*Selection area*/}
-      <Container
-        style={{
-          width: "90%",
-
-          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
-        }}
-      >
-        <Grid
-          container
-          display="flex"
-          sx={{
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          {SOFTSKILLINFO.map((skill) => (
-            <QuestionItem key={skill.title} item={skill} />
-          ))}
-        </Grid>
-      </Container>
     </React.Fragment>
   );
 }
+
+const styles = {
+  paperOne: {
+    position: "relative",
+    zIndex: 2,
+    height: "90%",
+    paddingX: "3rem",
+    paddingY: "2rem",
+    // boxShadow:
+  },
+  paperTwo: {
+    position: "absolute",
+    right: "25%",
+    top: "100%",
+    zIndex: 1,
+    height: "90%",
+    paddingX: "3rem",
+    paddingY: "2rem",
+  },
+};
+
+const PaperComponent = ({ styles }) => {
+  const LineContainer = ({ leftText, rightText }) => {
+    return (
+      <Grid
+        display="flex"
+        direction="row"
+        sx={{ justifyContent: "space-between" }}
+      >
+        <Typography variant="CustomBody">{leftText}</Typography>
+        <Typography variant="CustomBody">{rightText}</Typography>
+      </Grid>
+    );
+  };
+
+  const ResultContainer = ({ type, result }) => {
+    return (
+      <Grid display="flex" direction="column" sx={{}}>
+        <Typography>{type}</Typography>
+        <div style={{ height: 5 }} />
+        <Typography variant="CustomHeading3">{result}</Typography>
+        <div style={{ height: 20 }} />
+        <Typography>Human Resources HR is the ...</Typography>
+
+        <Typography>Learn more on Majors/Careers Page</Typography>
+      </Grid>
+    );
+  };
+
+  const ResponseContainer = ({ type, response, points }) => {
+    return (
+      <Grid
+        display="flex"
+        direction="row"
+        sx={{ justifyContent: "space-between", alignItems: "center" }}
+      >
+        <Typography variant="CustomBody" sx={{ width: "50%" }}>
+          <strong>{type}</strong>: {response}
+        </Typography>
+        <Typography variant="CustomBody" sx={{ fontWeight: "bold" }}>
+          {points}
+        </Typography>
+      </Grid>
+    );
+  };
+
+  return (
+    <Paper sx={styles}>
+      <Grid
+        display="flex"
+        direction="column"
+        spacing="10px"
+        sx={{ width: "400px", height: "90%" }}
+      >
+        <Typography variant="CustomHeading3" sx={{ textAlign: "center" }}>
+          BOBATALKS EXPLORATION SHOP
+        </Typography>
+        <div style={{ height: 20 }} />
+        <Grid item key={0}>
+          <LineContainer
+            leftText={"We'll figure it out, together."}
+            rightText={"Today's date"}
+          />
+        </Grid>
+        <Grid item key={1}>
+          <LineContainer
+            leftText={"discord.gg/bobatalks"}
+            rightText={"To Go Order"}
+          />
+        </Grid>
+        <div style={{ height: 20 }} />
+        <Divider />
+        <div style={{ height: 20 }} />
+        <Grid item key={1}>
+          <LineContainer
+            leftText={"Subtotal"}
+            rightText={"2 Majors, 2 Careers"}
+          />
+        </Grid>
+        <div style={{ height: 20 }} />
+        <Grid item key={2}>
+          <ResultContainer type={"Major"} result={"Education"} />
+        </Grid>
+        <div style={{ height: 20 }} />
+        <Grid item key={3}>
+          <ResultContainer type={"Career"} result={"HR"} />
+        </Grid>
+        <div style={{ height: 20 }} />
+        <Divider />
+        <div style={{ height: 20 }} />
+        <Grid item key={4}>
+          <ResponseContainer
+            type={"Base"}
+            response={
+              "Home Ec, English Literature, Psychology, Foreign Languages, Math, Social Studies"
+            }
+            points={"6"}
+          />
+        </Grid>
+        <div style={{ height: 20 }} />
+        <Grid item key={5}>
+          <ResponseContainer
+            type={"Topping"}
+            response={"Time management, Analytical, Public Speaking"}
+            points={"3"}
+          />
+        </Grid>
+      </Grid>
+    </Paper>
+  );
+};
