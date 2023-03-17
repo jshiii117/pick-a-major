@@ -27,10 +27,7 @@ import DiscordIcon from "../Images/DiscordIcon.png";
 import InstagramIcon from "../Images/InstagramIcon.png";
 import LinkedInIcon from "../Images/LinkedInIcon.png";
 import YouTubeIcon from "../Images/YouTubeIcon.png";
-<<<<<<< HEAD
-=======
 import CustomFooter from "./CustomFooter";
->>>>>>> fa47da1b9acb546e3af13534f3bf2a610d083848
 
 function Home() {
   return (
@@ -115,11 +112,10 @@ function Home() {
             <Link
               sx={{ color: "Boba.main" }}
               underline="none"
-              target="_blank"
               rel="noopener noreferrer"
               aria-label="Learn more about other different majors"
               component={RouterLink}
-              to="/questionOne"
+              to="/questions"
             >
               <PrimaryButton buttonText={"Take the Quiz"}></PrimaryButton>
             </Link>

@@ -8,6 +8,7 @@ import {
   SecondaryButton,
 } from "../Styling/CustomStyling.js";
 import {
+  Link,
   Container,
   Typography,
   Grid,
@@ -15,6 +16,7 @@ import {
   Paper,
   Divider,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
@@ -24,6 +26,7 @@ import HexagonIcon from "@mui/icons-material/Hexagon";
 import DiscreteProgressBar from "./ProgressBar";
 import BobaBot from "../Images/BobaBot.png";
 import BobaBot1 from "../Images/BobaBot1.png";
+import BobaBot2 from "../Images/BobaBot2.png";
 import CustomFooter from "./CustomFooter";
 // import { FlipIcon } from "@mui/icons-material/Flip"
 
@@ -408,7 +411,7 @@ function QuestionResults({ onBack, onContinue }) {
       {/*Short text summary and icon */}
       <Container
         style={{
-          maxWidth: "80%",
+          maxWidth: "90%",
           minHeight: "1000px",
         }}
       >
@@ -431,27 +434,34 @@ function QuestionResults({ onBack, onContinue }) {
             display="flex"
             sx={{
               minWidth: "100%",
-              justifyContent: "space-between",
-              alignItems: "center",
               backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
             }}
           >
             <PaperComponent styles={styles.paperOne} />
-
+            <div style={{ width: "10%" }} />
             <Stack container direction="column" display="flex">
-              <PrimaryButton buttonText={"Explore Majors"} onClick={{}} />
-              <div style={{ height: 40 }} />
               <Container
                 sx={{
-                  minWidth: 140,
-                  minHeight: 180,
                   backgroundColor: CustomTheme.palette.ThaiTea.main,
-                  alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "end",
+                  alignItems: "space-evenly",
+                  display: "flex",
                 }}
               >
-                <img src={BobaBot} alt="BobaBot" />
-              </Container>{" "}
+                <img src={BobaBot2} alt="BobaBot" style={{ width: "40%" }} />
+              </Container>
+              <div style={{ height: 40 }} />
+              <Link
+                sx={{ color: "Boba.main" }}
+                underline="none"
+                rel="noopener noreferrer"
+                aria-label="Learn more about other different majors"
+                component={RouterLink}
+                to="/results"
+              >
+                <PrimaryButton buttonText={"Explore Results"}></PrimaryButton>
+              </Link>
+              <div style={{ height: 40 }} />
             </Stack>
           </Stack>
         </Stack>
