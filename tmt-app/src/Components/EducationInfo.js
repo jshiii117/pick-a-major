@@ -1,18 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styling/Home.css";
 import {
   FlexContainer,
   PrimaryButton,
   CustomTheme,
 } from "../Styling/CustomStyling.js";
-import { Container, Typography, Box, Grid, Paper, Stack } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Paper,
+  Stack,
+  Button,
+} from "@mui/material";
 import WhatIcon from "../Images/icons/what_light.svg";
-
+import ImagePlaceholder from "../Images/ImagePlaceholder.png";
 import { Link as RouterLink } from "react-router-dom";
 
 import CustomFooter from "./CustomFooter";
 
-function EducationInfo() {
+function MajorInfo() {
+  const [view, setView] = useState(0);
+
+  const renderView = () => {
+    switch (view) {
+      case 0:
+        return (
+          <MajorDetailedView
+            major={allMajors[0]}
+            title={`What is ${allMajors[0].name} as a major?`}
+            subtitle={`What classes should I look into?`}
+          />
+        );
+      case 1:
+        return (
+          <MajorDetailedView
+            major={allMajors[0]}
+            title={`Who should pursue ${allMajors[0].name}?`}
+            subtitle={`What skills do those in ${allMajors[0].name} have?`}
+          />
+        );
+      case 2:
+        return (
+          <MajorDetailedView
+            major={allMajors[0]}
+            title={`What is ${allMajors[0].name} as a career?`}
+            subtitle={`What classes involve ${allMajors[0].name} as a major?`}
+          />
+        );
+      case 3:
+        return (
+          <MajorDetailedView
+            major={allMajors[0]}
+            title={`Any extra tips for those looking into ${allMajors[0].name}?`}
+            subtitle={`What is ${allMajors[0].name} as a career?`}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  function handleClick(index) {
+    console.log(`running handleClick ${index}`);
+    setView(index);
+  }
+
   return (
     <React.Fragment>
       <Container
@@ -26,91 +80,35 @@ function EducationInfo() {
           display: "flex",
           flexDirection: "column",
           textAlign: "center",
-          backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
         }}
       >
         <Typography variant="CustomHeading2" sx={{ marginBottom: "2rem" }}>
           Education
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          {["What", "Who", "Career", "Tips"].map((educationItem) => (
-            <EducationItem key={educationItem} educationItem={educationItem} />
+          {["What", "Who", "Career", "Tips"].map((majorItem, index) => (
+            <MajorItem
+              key={index}
+              majorItem={majorItem}
+              onClick={() => handleClick(index)}
+            />
           ))}
         </Box>
-        <Container sx={{ marginTop: "3rem", width: "70%" }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
-              <Paper
-                sx={{
-                  backgroundColor: CustomTheme.palette.warning.main,
-                  padding: "2rem",
-                  borderRadius: "16px",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  sx={{ color: CustomTheme.palette.common.white }}
-                >
-                  Title 1
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: CustomTheme.palette.common.white,
-                    marginTop: "1rem",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  Body 1
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{ color: CustomTheme.palette.common.white }}
-                >
-                  Title 2
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: CustomTheme.palette.common.white,
-                    marginTop: "1rem",
-                  }}
-                >
-                  Body 2
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: "url(https://source.unsplash.com/random)",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  borderRadius: "16px",
-                }}
-              ></Box>
-            </Grid>
-          </Grid>
-        </Container>
+        {renderView()}
         <CustomFooter />
       </Container>
     </React.Fragment>
   );
 }
 
-export default EducationInfo;
+export default MajorInfo;
 
-function EducationItem({ educationItem }) {
+function MajorItem({ majorItem, onClick }) {
   return (
     <Box
+      onClick={() => onClick()}
       sx={{
+        cursor: "pointer",
         display: "flex",
         alignItems: "center",
         position: "relative",
@@ -121,12 +119,11 @@ function EducationItem({ educationItem }) {
         sx={{
           display: "flex",
           direction: "column",
-          width: "6rem",
-          height: "6rem",
+          width: "8rem",
+          height: "8rem",
           borderRadius: "50%",
           backgroundColor: CustomTheme.palette.Matcha.main,
           border: `3px solid ${CustomTheme.palette.common.white}`,
-          display: "flex",
           justifyContent: "center",
           alignItems: "center",
           position: "relative",
@@ -139,9 +136,134 @@ function EducationItem({ educationItem }) {
           variant="CustomHeading3"
           sx={{ color: CustomTheme.palette.common.white }}
         >
-          {educationItem}
+          {majorItem}
         </Typography>
       </Stack>
     </Box>
   );
 }
+
+function MajorDetailedView({ major, title, subtitle }) {
+  return (
+    <Container sx={{ marginTop: "3rem", width: "70%", height: "80vh" }}>
+      <Paper
+        sx={{
+          backgroundColor: CustomTheme.palette.ThaiTea.main,
+          padding: "2rem",
+          height: "100%",
+          borderRadius: "16px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <Grid
+          container
+          direction="row"
+          spacing={2}
+          sx={{ padding: "", height: "100%", alignItems: "center" }}
+        >
+          <Grid item xs={12} md={7}>
+            <Grid
+              container
+              direction="column"
+              sx={{
+                textAlign: "start",
+                maxWidth: "90%",
+                backgroundColor: CustomTheme.palette.TestBackgroundColor.main,
+                justifyItems: "center",
+                height: "100%",
+              }}
+            >
+              <Typography
+                variant="CustomHeading2"
+                sx={{
+                  color: CustomTheme.palette.common.black,
+                }}
+              >
+                {title}
+              </Typography>
+              <Typography
+                variant="CustomBody"
+                sx={{
+                  color: CustomTheme.palette.common.black,
+                  marginTop: "1rem",
+                  marginBottom: "2rem",
+                }}
+              >
+                {major.pageOneUpper}
+              </Typography>
+              <Typography
+                variant="CustomHeading2"
+                sx={{ color: CustomTheme.palette.common.black }}
+              >
+                {subtitle}
+              </Typography>
+              <Box component="ul">
+                {major.pageOneList.map((item, index) => (
+                  <Typography
+                    key={index}
+                    variant="CustomBody"
+                    component="li"
+                    style={{ listStyle: "disc", paddingLeft: "1rem" }}
+                  >
+                    {item}
+                  </Typography>
+                ))}
+              </Box>
+            </Grid>
+            {/* <Paper
+              sx={{
+                backgroundColor: CustomTheme.palette.warning.main,
+                padding: "2rem",
+                paddingX: "2rem",
+                borderRadius: "16px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "start",
+              }}
+            > */}
+
+            {/* </Paper> */}
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <Box>
+              <img
+                src={ImagePlaceholder}
+                alt=""
+                style={{ maxHeight: "100%", maxWidth: "100%" }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Container>
+  );
+}
+
+const allMajors = [
+  {
+    name: "Education",
+    pageOneUpper:
+      "Education is a field that involves the study of teaching and learning, including the theories and practices of educational psychology, instructional design, and the sociology of education. Education majors typically prepare to become teachers or work in related fields such as educational administration or policy.",
+    pageOneList: [
+      "Education Psychology",
+      "Language Development",
+      "Social Issues in Education",
+    ],
+    pageTwoUpper:
+      "Education is a field that involves the study of teaching and learning, including the theories and practices of educational psychology, instructional design, and the sociology of education. Education majors typically prepare to become teachers or work in related fields such as educational administration or policy.",
+    pageTwoList: ["People Management", "Conflict Resolution"],
+    pageThreeUpper:
+      "Education is a field that involves the study of teaching and learning, including the theories and practices of educational psychology, instructional design, and the sociology of education. Education majors typically prepare to become teachers or work in related fields such as educational administration or policy.",
+    pageThreeList: ["Human Resources", "Recruiting", "Education"],
+    pageFourUpper:
+      "Yes! We have a few extra resources for those interested in Education:",
+    pageFourResources: [
+      "Salary information via talent",
+      "BobaTalks Resource Hub",
+      "BobaTalks Discord Server",
+    ],
+  },
+];
