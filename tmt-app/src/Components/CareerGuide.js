@@ -1,13 +1,6 @@
 import React from "react";
-import { Container } from "@mui/system";
-import Breadcrumb from "./Breadcrumb";
 
 function CareerGuide() {
-  return (
-    <Container>
-      <Breadcrumb />
-    </Container>
-  );
+  return <div>CareerGuide</div>;
 }
-
 export default CareerGuide;

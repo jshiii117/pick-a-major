@@ -1,40 +1,50 @@
-import React from "react";
-import "../Styling/Home.css";
+import React, { useRef } from "react";
 import { PrimaryBtn, FlexContainer } from "../Styling/CustomStyling.js";
-import { Link, Container, Typography } from "@mui/material";
+import { Container, Typography, Button, Box } from "@mui/material";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
 import ThaiTeaSwiggle1 from "../Images/ThaiTeaSwiggle1.png";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import Breadcrumb from "./Breadcrumb";
-import { Link as RouterLink } from "react-router-dom";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import MajorCareerList from "./MajorCareerList.js";
+import GuideSidebar from "./GuideSidebar.js";
 
 function Home() {
+  const scrollToList = useRef(null);
+  const toggleDisplayGuide = () => {
+    scrollToList.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Container
       sx={{
         minWidth: "100%",
-        paddingTop: "7.5rem",
-        overflow: "hidden",
         minHeight: "100vh",
+        overflowX: {
+          xs: "hidden",
+        },
       }}
     >
-      <Breadcrumb />
       <FlexContainer sx={{ paddingY: "6.25rem" }}>
         <Container
           sx={{
             position: "absolute",
             top: "0",
-            zIndex: "-3",
+            zIndex: "-1500",
             minWidth: "1585px",
             paddingY: "2rem",
           }}
         >
           <img
-            className="Home_Hero_Background"
             src={MilkTeaBlob}
             alt="MilkTeaBlob"
+            style={{
+              position: "relative",
+              top: "0",
+              width: "100%",
+              height: "575px",
+              transform: "rotateX(180deg)",
+            }}
           />
         </Container>
         <FlexContainer sx={{ flexDirection: "column", position: "none" }}>
@@ -55,34 +65,66 @@ function Home() {
         </FlexContainer>
       </FlexContainer>
 
-      <FlexContainer sx={{ flexDirection: "row" }}>
+      <FlexContainer sx={{ minWidth: "100%" }}>
         <FlexContainer
           sx={{
             position: "absolute",
-            bottom: "-125%",
             justifyContent: "space-between",
-            zIndex: "-1",
+            flexDirection: "row",
+            zIndex: "-1000",
+            minWidth: "100%",
           }}
         >
-          <div className="Home_Button_Bg_Left">
+          <Box
+            sx={{
+              position: "relative",
+              height: "25vh",
+            }}
+          >
             <img
               src={LycheeRectangle}
-              className="Home_Button_Bg_Img1"
               alt="LycheeRectangle"
+              style={{
+                width: "50%",
+                verticalAlign: "middle",
+                transform: "rotate(133.23deg)",
+                position: "absolute",
+                top: "-100%",
+                left: "-60%",
+              }}
             />
             <img
               src={MilkTeaSwiggle2}
-              className="Home_Button_Bg_Img2"
               alt="MilkTeaSwiggle2"
+              style={{
+                width: "100%",
+                transform: "rotate(32.27deg)",
+                position: "relative",
+                left: "-55%",
+                top: "-50%",
+              }}
             />
-          </div>
-          <div className="Home_Button_Bg_Right">
+          </Box>
+          <Box
+            sx={{
+              position: "relative",
+              right: "-7%",
+              display: {
+                xs: "none",
+                md: "none",
+                lg: "block",
+              },
+            }}
+          >
             <img
               src={ThaiTeaSwiggle1}
-              className="Home_Button_Bg_Img3"
               alt="ThaiTeaSwiggle1"
+              style={{
+                width: "100%",
+                transform: "rotate(-33.7deg)",
+              }}
             />
-          </div>
+          </Box>
         </FlexContainer>
         <FlexContainer
           sx={{
@@ -94,24 +136,55 @@ function Home() {
             <Typography variant="CustomHeading2">Take the Quiz</Typography>
           </PrimaryBtn>
 
-          <div className="Home_Button_Main_Link">
-            <Link
-              sx={{ color: "Boba.main" }}
-              underline="none"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Learn more about other different majors"
-              component={RouterLink}
-              to="/guide"
+          <FlexContainer sx={{ marginTop: "4.5rem", flexDirection: "column" }}>
+            <Button
+              onClick={toggleDisplayGuide}
+              sx={{
+                color: "black",
+                textDecoration: "underline",
+              }}
             >
               <Typography variant="CustomSubHeading">
                 See all Majors/Careers
               </Typography>
-            </Link>
-            <ArrowRightAltIcon
-              sx={{ paddingTop: "3px", paddingLeft: "10px" }}
-            />
-          </div>
+              <ArrowDownwardIcon
+                sx={{ paddingTop: "3px", paddingLeft: "10px" }}
+              />
+            </Button>
+          </FlexContainer>
+        </FlexContainer>
+      </FlexContainer>
+      <FlexContainer
+        sx={{
+          marginY: "5rem",
+          padding: "3rem 1rem 0 1rem",
+          position: "relative",
+          zIndex: "1500",
+          minWidth: "100%",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          height: "85vh",
+        }}
+        ref={scrollToList}
+      >
+        <Typography display="block" variant="CustomHeading3">
+          All Majors & Careers
+        </Typography>
+        <FlexContainer
+          sx={{
+            alignItems: "flex-start",
+            flexDirection: {
+              xs: "column",
+              sm: "column",
+              md: "row",
+            },
+            justifyContent: "center",
+            minWidth: "100%",
+          }}
+        >
+          <MajorCareerList />
+          <GuideSidebar toggleButton={false} />
         </FlexContainer>
       </FlexContainer>
     </Container>
