@@ -1,4 +1,5 @@
 import { styled, Button, Container, createTheme } from "@mui/material";
+import "@fontsource/poppins";
 
 export const CustomTheme = createTheme({
   palette: {
