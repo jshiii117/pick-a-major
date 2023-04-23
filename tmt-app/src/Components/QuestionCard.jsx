@@ -28,7 +28,7 @@ const QuestionCard = ({ item }) => {
     height: "152px",
     justifyContent: "center",
     margin: "0.6rem",
-    maxWidth: "240px",
+    width: "240px",
     textAlign: "center",
     transition: "all 0.3s ease-in-out",
   };

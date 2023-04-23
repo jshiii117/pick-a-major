@@ -1,3 +1,5 @@
+import AnatomyIcon from "../Images/icons/anatomy.svg";
+
 export const CAREERS_LIST = [
   {
     id: 0,
@@ -450,5 +452,68 @@ export const FIELD_OF_STUDY_LIST = [
     id: 10,
     name: "Visual Arts & Design",
     major: ["Media Art", "Graphic Design", "UX/UI Design", "HCI (Duplicate)"],
+  },
+];
+
+export const CAREERS_CARDS_PLACEHOLDERS = [
+  {
+    title: "Anatomy",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "History",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Geography",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Math",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Computer Science",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "English",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Political Science",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Philosophy",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Home Studies",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Nursing",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Keyboard",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
+  },
+  {
+    title: "Woodwork",
+    info: "Information for Anatomy.",
+    icon: AnatomyIcon,
   },
 ];

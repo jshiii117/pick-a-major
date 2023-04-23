@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { PrimaryBtn, FlexContainer } from "../Styling/CustomStyling.js";
-import { Container, Typography, Button, Box } from "@mui/material";
+import { Link, Container, Typography, Button, Box } from "@mui/material";
 import MilkTeaBlob from "../Images/MilkTeaBlob.png";
 import LycheeRectangle from "../Images/LycheeRectangle.png";
 import MilkTeaSwiggle2 from "../Images/MilkTeaSwiggle2.png";
@@ -8,6 +8,7 @@ import ThaiTeaSwiggle1 from "../Images/ThaiTeaSwiggle1.png";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import MajorCareerList from "./MajorCareerList.js";
 import GuideSidebar from "./GuideSidebar.js";
+import { Link as RouterLink } from "react-router-dom";
 
 function Home() {
   const scrollToList = useRef(null);
@@ -132,9 +133,17 @@ function Home() {
             height: "auto",
           }}
         >
-          <PrimaryBtn sx={{ color: "#FFFFFF" }}>
-            <Typography variant="CustomHeading2">Take the Quiz</Typography>
-          </PrimaryBtn>
+          <Link
+            sx={{ color: "Boba.main" }}
+            underline="none"
+            aria-label="Learn more about other different majors"
+            component={RouterLink}
+            to="/quiz/1"
+          >
+            <PrimaryBtn sx={{ color: "#FFFFFF" }}>
+              <Typography variant="CustomHeading2">Take the Quiz</Typography>
+            </PrimaryBtn>
+          </Link>
 
           <FlexContainer sx={{ marginTop: "4.5rem", flexDirection: "column" }}>
             <Button
