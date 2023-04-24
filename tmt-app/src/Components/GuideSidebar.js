@@ -7,12 +7,10 @@ function GuideSidebar({ toggleButton }) {
     <FlexContainer sx={{ flexDirection: "column" }}>
       <Box sx={{ width: "60%", textAlign: "center" }}>
         <Box>
-          <Typography variant="CustomTitle">Major Guide</Typography>
+          <Typography variant="h1">Major Guide</Typography>
         </Box>
         <Box>
-          <Typography variant="CustomHeading2">
-            Explore majors, careers, & more
-          </Typography>
+          <Typography variant="h3">Explore majors, careers, & more</Typography>
         </Box>
       </Box>
       <PrimaryBtn
@@ -21,7 +19,7 @@ function GuideSidebar({ toggleButton }) {
           backgroundColor: toggleButton ? "InactiveGrey2.main" : "Matcha.main",
         }}
       >
-        <Typography variant="CustomHeading2">Take the Quiz</Typography>
+        <Typography variant="h3">Take the Quiz</Typography>
       </PrimaryBtn>
     </FlexContainer>
   );

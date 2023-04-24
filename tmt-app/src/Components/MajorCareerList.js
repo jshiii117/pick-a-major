@@ -14,7 +14,7 @@ function MajorCareerList() {
       }}
     >
       <Box sx={{ paddingX: "1rem" }}>
-        <Typography variant="CustomHeading3" sx={{ marginBottom: "1rem" }}>
+        <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
           Majors
         </Typography>
         <Fragment>
@@ -31,7 +31,7 @@ function MajorCareerList() {
         </Fragment>
       </Box>
       <Box sx={{ paddingX: "1rem" }}>
-        <Typography variant="CustomHeading3" sx={{ marginBottom: "1rem" }}>
+        <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
           Careers
         </Typography>
         <Fragment>

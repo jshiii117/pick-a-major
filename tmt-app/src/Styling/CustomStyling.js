@@ -1,5 +1,8 @@
 import { styled, Button, Container, createTheme } from "@mui/material";
+import { createBreakpoints } from "@mui/system";
 import "@fontsource/poppins";
+
+const breakpoints = createBreakpoints({});
 
 export const CustomTheme = createTheme({
   palette: {
@@ -32,81 +35,99 @@ export const CustomTheme = createTheme({
     },
   },
   typography: {
-    CustomTitle: {
-      fontFamily: "Poppins",
-      fontWeight: 700,
-      fontSize: "64px",
-      lineHeight: "96px",
-      "@media (max-width:1350px)": {
-        fontWeight: 700,
-        fontSize: "52px",
-        lineHeight: "72px",
-      },
-      "@media (max-width:1050px)": {
-        fontWeight: 700,
-        fontSize: "42px",
-        lineHeight: "52px",
-      },
-      "@media (max-width:750px)": {
-        fontWeight: 700,
-        fontSize: "32px",
-        lineHeight: "38px",
-      },
-    },
-    CustomHeading1: {
-      fontFamily: "Poppins",
-      fontWeight: 700,
-      fontSize: "36px",
-      lineHeight: "54px",
-    },
-    CustomHeading2: {
+    h1: {
       fontFamily: "Poppins",
       fontWeight: 700,
       fontSize: "32px",
-      lineHeight: "48px",
-      "@media (max-width:1350px)": {
-        fontWeight: 700,
-        fontSize: "28px",
-        lineHeight: "42px",
+      lineHeight: "38px",
+      [breakpoints.up("sm")]: {
+        fontSize: "42px",
+        lineHeight: "52px",
       },
-      "@media (max-width:1050px)": {
-        fontWeight: 700,
+      [breakpoints.up("lg")]: {
+        fontSize: "52px",
+        lineHeight: "72px",
+      },
+      [breakpoints.up("xl")]: {
+        fontSize: "64px",
+        lineHeight: "96px",
+      },
+    },
+    h2: {
+      fontFamily: "Poppins",
+      fontWeight: 700,
+      fontSize: "20px",
+      lineHeight: "22px",
+      [breakpoints.up("sm")]: {
+        fontSize: "26px",
+        lineHeight: "28px",
+      },
+      [breakpoints.up("lg")]: {
+        fontSize: "32px",
+        lineHeight: "34px",
+      },
+      [breakpoints.up("xl")]: {
+        fontSize: "38px",
+        lineHeight: "40px",
+      },
+    },
+    h3: {
+      fontFamily: "Poppins",
+      fontWeight: 700,
+      fontSize: "20px",
+      lineHeight: "34px",
+      [breakpoints.up("sm")]: {
         fontSize: "24px",
         lineHeight: "38px",
       },
-      "@media (max-width:750px)": {
-        fontWeight: 700,
-        fontSize: "20px",
-        lineHeight: "34px",
+      [breakpoints.up("lg")]: {
+        fontSize: "28px",
+        lineHeight: "42px",
+      },
+      [breakpoints.up("xl")]: {
+        fontSize: "32px",
+        lineHeight: "48px",
       },
     },
-    CustomHeading3: {
+    h4: {
       fontFamily: "Poppins",
       fontWeight: 600,
-      fontSize: "24px",
-      lineHeight: "36px",
-      "@media (max-width:1350px)": {
-        fontWeight: 600,
+      fontSize: "16px",
+      lineHeight: "24px",
+      [breakpoints.up("sm")]: {
         fontSize: "20px",
         lineHeight: "30px",
       },
-      "@media (max-width:750px)": {
-        fontWeight: 600,
-        fontSize: "16px",
-        lineHeight: "24px",
+      [breakpoints.up("lg")]: {
+        fontSize: "24px",
+        lineHeight: "36px",
       },
     },
-    CustomSubHeading: {
+    h5: {
       fontFamily: "Poppins",
       fontWeight: 600,
-      fontSize: "20px",
+      fontSize: "14px",
       lineHeight: "30px",
+      [breakpoints.up("lg")]: {
+        fontSize: "17px",
+        lineHeight: "30px",
+      },
+      [breakpoints.up("xl")]: {
+        fontSize: "20px",
+        lineHeight: "30px",
+      },
     },
-    CustomBody: {
+    h6: {
       fontFamily: "Poppins",
       fontWeight: 400,
-      fontSize: "16px",
-      lineHeight: "24px",
+      fontSize: "14px",
+      lineHeight: "20px",
+      [breakpoints.up("lg")]: {
+        fontSize: "16px",
+      },
+      [breakpoints.up("xl")]: {
+        fontSize: "16px",
+      },
     },
     CustomOverline: {
       fontFamily: "Poppins",
@@ -155,18 +176,18 @@ export const PrimaryBtn = styled(Button)({
   backgroundColor: "#73956F",
   borderRadius: "8px",
   border: 0,
-  padding: "1rem 5rem",
+  padding: "1rem 2rem",
   "&:hover": {
     backgroundColor: "#732C2C",
   },
-  "@media (max-width:1350px)": {
-    padding: "1rem 4rem",
-  },
-  "@media (max-width:1050px)": {
+  [breakpoints.up("md")]: {
     padding: "1rem 3rem",
   },
-  "@media (max-width:750px)": {
-    padding: "1rem 2rem",
+  [breakpoints.up("lg")]: {
+    padding: "1rem 4rem",
+  },
+  [breakpoints.up("xl")]: {
+    padding: "1rem 5rem",
   },
 });
 

@@ -1,8 +1,9 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import { FlexContainer } from "../Styling/CustomStyling.js";
+import ResultCardsContainer from "./ResultCardsContainer.jsx";
 
-function CareerGuide() {
+function ResultsPage() {
   return (
     <Grid
       container
@@ -42,9 +43,9 @@ function CareerGuide() {
             },
           }}
         >
-          <Typography variant="CustomHeading1">Results</Typography>
+          <Typography variant="h2">Results</Typography>
           <Typography
-            variant="CustomSubHeading"
+            variant="h5"
             sx={{
               marginLeft: {
                 xs: "0",
@@ -56,9 +57,10 @@ function CareerGuide() {
             Your results are lost once you leave this page.
           </Typography>
         </FlexContainer>
+        <ResultCardsContainer />
       </Grid>
     </Grid>
   );
 }
 
-export default CareerGuide;
+export default ResultsPage;
