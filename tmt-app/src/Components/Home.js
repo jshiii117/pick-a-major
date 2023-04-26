@@ -171,7 +171,6 @@ function Home() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "flex-start",
-          height: "85vh",
         }}
         ref={scrollToList}
       >
