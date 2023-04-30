@@ -1,7 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function MajorPage() {
-  return <div>MajorPage</div>;
+  const majorChoice = useParams();
+
+  return <div>{majorChoice.major}</div>;
 }
 
 export default MajorPage;

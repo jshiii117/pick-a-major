@@ -1,7 +1,8 @@
 import { React, Fragment } from "react";
-import { FlexContainer } from "../Styling/CustomStyling.js";
+import { FlexContainer } from "../Styling/CustomStyling";
 import { Box, Typography, Link } from "@mui/material";
 import { CAREERS_LIST, MAJORS_LIST } from "../constants/careerMajorList";
+import { Link as RouterLink } from "react-router-dom";
 
 function MajorCareerList() {
   return (
@@ -25,7 +26,28 @@ function MajorCareerList() {
                 padding: "0.25rem 0",
               }}
             >
-              {item.name}
+              <Link
+                to={`/majors/${item.key}`}
+                component={RouterLink}
+                sx={{
+                  color: "Boba.main",
+                  textDecoration: "underline",
+                  "&:hover": {
+                    color: "RedBean.main",
+                    fontWeight: "bold",
+                  },
+                  "&::after": {
+                    display: "block",
+                    content: `"${item.name}"`,
+                    fontWeight: "bold",
+                    height: "0px",
+                    overflow: "hidden",
+                    visibility: "hidden",
+                  },
+                }}
+              >
+                {item.name}
+              </Link>
             </div>
           ))}
         </Fragment>
@@ -43,8 +65,11 @@ function MajorCareerList() {
               }}
             >
               <Link
+                to={`/careers/${item.key}`}
+                component={RouterLink}
                 sx={{
                   color: "Boba.main",
+                  textDecoration: "underline",
                   "&:hover": {
                     color: "RedBean.main",
                     fontWeight: "bold",
@@ -58,11 +83,6 @@ function MajorCareerList() {
                     visibility: "hidden",
                   },
                 }}
-                underline="none"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.name}
-                href={item.link}
               >
                 {item.name}
               </Link>

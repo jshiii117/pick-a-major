@@ -20,11 +20,11 @@ const router = createBrowserRouter([
     element: <ResultsPage />,
   },
   {
-    path: "/majors",
+    path: "/majors/:major",
     element: <MajorPage />,
   },
   {
-    path: "/career/:career",
+    path: "/careers/:career",
     element: <CareerPage />,
   },
   {

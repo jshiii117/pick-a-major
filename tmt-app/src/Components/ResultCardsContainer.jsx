@@ -17,7 +17,7 @@ function ResultCardsContainer() {
       {MOCK_DATA.map((item) => {
         return (
           <Link
-            to={`/career/${item.name}`}
+            to={`/careers/${item.name}`}
             style={{
               textDecoration: "none",
             }}
