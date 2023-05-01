@@ -43,6 +43,7 @@ function ResultsPage() {
               sm: "column",
               md: "row",
             },
+            justifyContent: "flex-start",
           }}
         >
           <Typography variant="h2">Results</Typography>
@@ -52,13 +53,21 @@ function ResultsPage() {
               marginLeft: {
                 xs: "0",
                 sm: "0",
-                md: "5rem",
+                md: "3rem",
               },
             }}
           >
             Your results are lost once you leave this page.
           </Typography>
         </FlexContainer>
+        <Typography
+          variant="h4"
+          style={{
+            margin: "5rem 0 3rem 0",
+          }}
+        >
+          Quiz Results
+        </Typography>
         <ResultCardsContainer />
       </Grid>
       <Hidden mdDown>
@@ -70,6 +79,7 @@ function ResultsPage() {
           lg={5}
           sx={{
             paddingLeft: "3rem",
+            marginTop: "9.5rem",
           }}
         >
           <BobaBot text="Screenshot your results! They are lost after leaving this page." />
