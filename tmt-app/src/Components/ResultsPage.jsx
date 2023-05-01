@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Hidden } from "@mui/material";
 import { FlexContainer } from "../Styling/CustomStyling.js";
 import ResultCardsContainer from "./ResultCardsContainer.jsx";
+import BobaBot from "./BobaBot.jsx";
 
 function ResultsPage() {
   return (
@@ -27,6 +28,7 @@ function ResultsPage() {
         xs={11}
         sm={11}
         md={8}
+        lg={6}
         sx={{
           position: "relative",
           margin: "0 auto",
@@ -59,6 +61,20 @@ function ResultsPage() {
         </FlexContainer>
         <ResultCardsContainer />
       </Grid>
+      <Hidden mdDown>
+        <Grid
+          item
+          xs="none"
+          sm="none"
+          md={4}
+          lg={5}
+          sx={{
+            paddingLeft: "3rem",
+          }}
+        >
+          <BobaBot text="Screenshot your results! They are lost after leaving this page." />
+        </Grid>
+      </Hidden>
     </Grid>
   );
 }
