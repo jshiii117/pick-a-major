@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Grid } from "@mui/material";
 import QuestionCard from "./QuestionCard";
-import { CAREERS_CARDS_PLACEHOLDERS } from "../constants/careerMajorList";
+import { CAREERS_CARDS_PLACEHOLDERS } from "../utils/constants";
 
 function Questions() {
   return (

@@ -7,7 +7,7 @@ import {
   Typography,
   Container,
 } from "@mui/material";
-import { MOCK_DATA } from "../constants/mockData";
+import { MOCK_DATA } from "../utils/mockData";
 import { Link } from "react-router-dom";
 import IconSvg from "./IconSvg.jsx";
 
