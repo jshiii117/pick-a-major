@@ -1,8 +1,9 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Grid, Card } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { MAJORS_LIST } from "../utils/constants";
 import Breadcrumb from "./Breadcrumb";
+
 function MajorPage() {
   const params = useParams();
   let data = [];
@@ -29,6 +30,25 @@ function MajorPage() {
       >
         {data.name} (Major)
       </Typography>
+      <Grid container>
+        <Grid item>
+          <Card
+            sx={{
+              boxShadow: "none",
+              backgroundColor: "BobaBeige.main",
+            }}
+          >
+            <Typography variant="h3" sx={{ paddingBottom: "1.5rem" }}>
+              What is{" "}
+              {["a", "e", "i", "o", "u"].includes(data.name[0].toLowerCase())
+                ? "an "
+                : "a "}
+              {data.name} Major?
+            </Typography>
+            <Typography variant="body">{data.desc}</Typography>
+          </Card>
+        </Grid>
+      </Grid>
     </Container>
   );
 }

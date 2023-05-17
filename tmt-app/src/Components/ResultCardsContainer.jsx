@@ -28,8 +28,12 @@ function ResultCardsContainer() {
                 display: "flex",
                 alignItems: "center",
                 backgroundColor: "Matcha.main",
-                borderRadius: "15px",
                 color: "white",
+                "&.MuiCard-root": {
+                  padding: "0",
+                  borderRadius: "15px",
+                  margin: "0",
+                },
                 ":hover": {
                   color: "black",
                   backgroundColor: "BTMilkTea.main",

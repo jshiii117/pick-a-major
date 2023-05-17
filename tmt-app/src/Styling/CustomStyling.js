@@ -33,6 +33,18 @@ export const CustomTheme = createTheme({
     Boba: {
       main: "#1B1D2E",
     },
+    BobaBeige: {
+      main: "#F3E8DE",
+    },
+    BobaPink: {
+      main: "#F4D7D7",
+    },
+    Lavender: {
+      main: "#F6F1FF",
+    },
+    Avacado: {
+      main: "#F0F6E2",
+    },
   },
   typography: {
     h1: {
@@ -129,7 +141,7 @@ export const CustomTheme = createTheme({
         fontSize: "16px",
       },
     },
-    CustomOverline: {
+    body: {
       fontFamily: "Poppins",
       fontWeight: 400,
       fontSize: "16px",
@@ -167,6 +179,25 @@ export const CustomTheme = createTheme({
           },
         },
       ],
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          "&.MuiCard-root": {
+            borderRadius: "36px",
+            padding: "2.25rem",
+            [breakpoints.up("xs")]: {
+              margin: "0.75rem",
+            },
+            [breakpoints.up("sm")]: {
+              margin: "1.25rem",
+            },
+            [breakpoints.up("md")]: {
+              margin: "1.75rem",
+            },
+          },
+        },
+      },
     },
   },
 });
