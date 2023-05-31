@@ -186,15 +186,6 @@ export const CustomTheme = createTheme({
           "&.MuiCard-root": {
             borderRadius: "36px",
             padding: "2.25rem",
-            [breakpoints.up("xs")]: {
-              margin: "0.75rem",
-            },
-            [breakpoints.up("sm")]: {
-              margin: "1.25rem",
-            },
-            [breakpoints.up("md")]: {
-              margin: "1.75rem",
-            },
           },
         },
       },

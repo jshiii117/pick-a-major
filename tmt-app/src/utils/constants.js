@@ -116,7 +116,7 @@ export const CAREERS_LIST = [
 ];
 
 export const MAJORS_LIST = {
-  '"biology-and-health"': {
+  "biology-and-health": {
     id: 0,
     name: "Biology & Health",
     desc: "Biology is the scientific study of living organisms and their interactions with each other and their environment. Health majors focus on the study of health and wellness and may include coursework in areas such as public health, nutrition, and healthcare administration",
@@ -128,9 +128,10 @@ export const MAJORS_LIST = {
       "Gene Expression",
     ],
     skills: ["Technical Communication", "Research", "Data Analysis"],
+    careers: ["Healthcare Professionals"],
     key: "biology-and-health",
   },
-  '"computer-science-and-math"': {
+  "computer-science-and-math": {
     id: 1,
     name: "Computer Science & Math",
     desc: "Computer Science is a field that involves the study of computers and computational systems, including their hardware and software design and implementation. Math is a field that involves the study of numbers, quantities, and shapes, and the use of logical reasoning and abstract thinking to solve problems",
@@ -150,9 +151,20 @@ export const MAJORS_LIST = {
       "Software Development",
       "Cloud Skills",
     ],
+    careers: [
+      "Software Engineering",
+      "Data Science",
+      "Product Management",
+      "Desgin",
+      "Project/Program Management",
+      "Engineering",
+      "Accounting/Finance",
+      "Investment Banking",
+      "Consultant",
+    ],
     key: "computer-science-and-math",
   },
-  '"economics-and-business"': {
+  "economics-and-business": {
     id: 2,
     name: "Economics & Business",
     desc: "Economics is a social science that deals with the production, distribution, and consumption of goods and services. Business is a field that involves the study of how organizations operate and how they make and manage money, as well as topics such as marketing, finance, and management",
@@ -163,9 +175,17 @@ export const MAJORS_LIST = {
       "Customer Empathy",
       "Presentation Skills",
     ],
+    careers: [
+      "Accounting/Finance",
+      "Project/Program Management",
+      "Marketing",
+      "HR",
+      "Consultant",
+      "Law/Legal",
+    ],
     key: "economics-and-business",
   },
-  '"education"': {
+  education: {
     id: 3,
     name: "Education",
     desc: "Education is a field that involves the study of teaching and learning, including the theories and practices of educational psychology, instructional design, and the sociology of education. Education majors typically prepare to become teachers or work in related fields such as educational administration or policy",
@@ -175,17 +195,26 @@ export const MAJORS_LIST = {
       "Social Issues in Education",
     ],
     skills: ["People Management", "Conflict Resolution"],
+    careers: ["Project/Program Management", "HR", "Recruiting", "Education"],
     key: "education",
   },
-  '"humanities-and-cultures"': {
+  "humanities-and-cultures": {
     id: 4,
     name: "Humanities & Cultures",
     desc: "Humanities is a broad field that encompasses the study of language, literature, art, music, history, philosophy, and other cultural practices and products. Culture majors focus on the study of the ways in which people from different societies and communities create, share, and transmit their traditions, beliefs, and values",
     classes: ["Food in Culture", "Comparative Literature", "Race Theory"],
     skills: ["Critical Thinking", "Written Communication", "Empathy"],
+    careers: [
+      "HR",
+      "Marketing",
+      "Healthcare Professionals",
+      "Project/Program Management",
+      "Recruiting",
+      "Education",
+    ],
     key: "humanities-and-cultures",
   },
-  '"languages"': {
+  languages: {
     id: 5,
     name: "Languages",
     desc: "Language majors involve the study of one or more foreign languages, including their structure, grammar, and literature, as well as the cultures and societies in which they are spoken. Language majors may also include coursework in linguistics, the scientific study of language, and may prepare students for careers in translation, interpretation, language teaching, or international relations",
@@ -195,9 +224,10 @@ export const MAJORS_LIST = {
       "Linguistics",
     ],
     skills: ["Critical Thinking", "Written Communication", "Empathy"],
+    careers: ["Marketing", "Recruiting", "Law/Legal"],
     key: "languages",
   },
-  '"performing-arts"': {
+  "performing-arts": {
     id: 6,
     name: "Performing Arts",
     desc: "Performing arts is a field that includes the study of music, theater, and dance, as well as the technical aspects of stage production. Performing arts majors typically focus on developing their skills in performance, composition, or production, and may prepare for careers as musicians, actors, dancers, or stage managers",
@@ -208,9 +238,10 @@ export const MAJORS_LIST = {
       "Entertainment Engineering & Management",
     ],
     skills: ["Public Speaking", "Creativity"],
+    careers: ["Design", "Recruiting"],
     key: "performing-arts",
   },
-  '"physical-science-and-engineering"': {
+  "physical-science-and-engineering": {
     id: 7,
     name: "Physical Science & Engineering",
     desc: "Physical Science is a field that encompasses the study of the natural sciences, including physics, chemistry, and astronomy, as well as the properties and behavior of matter and energy. Engineering is a field that involves the application of scientific and mathematical principles to the design, construction, and operation of systems, machines, and structures",
@@ -224,9 +255,18 @@ export const MAJORS_LIST = {
       "research and data analysis",
       "Mathematical/Logical Reasoning",
     ],
+    careers: [
+      "Engineering",
+      "Software Engineering",
+      "Product Management",
+      "Project/Program Management",
+      "Investment Banking",
+      "Consultant",
+      "Law/Legal",
+    ],
     key: "physical-science-and-engineering",
   },
-  '"psychology-and-neuroscience"': {
+  "psychology-and-neuroscience": {
     id: 8,
     name: "Psychology & Neuroscience",
     desc: "Psychology is a field that involves the scientific study of the mind and behavior, including topics such as cognition, perception, emotion, and social interactions. Neurology is a medical specialty that deals with the diagnosis, treatment, and management of disorders of the nervous system",
@@ -241,9 +281,17 @@ export const MAJORS_LIST = {
       "Research Methods",
       "Statistical and Computing Techniques",
     ],
+    careers: [
+      "Design",
+      "HR",
+      "Healthcare Professional",
+      "Project/Program Management",
+      "Marketing",
+      "Recruiting",
+    ],
     key: "psychology-and-neuroscience",
   },
-  '"social-and-political-science"': {
+  "social-and-political-science": {
     id: 9,
     name: "Social & Political Science",
     desc: "Social science is a field that deals with the study of human society and social relationships, including topics such as anthropology, sociology, and psychology. Political science is a field that involves the study of government, politics, and political systems, including topics such as political theory, public policy, and international relations",
@@ -257,9 +305,10 @@ export const MAJORS_LIST = {
       "Critical Thinking",
       "Presentation/Public Skills",
     ],
+    careers: ["HR", "Law/Legal", "Recruiting", "Marketing", "Law/Legal"],
     key: "social-and-political-science",
   },
-  '"visual-arts-and-design"': {
+  "visual-arts-and-design": {
     id: 10,
     name: "Visual Arts & Design",
     desc: "Visual art is a field that involves the creation of art using a variety of mediums, such as painting, sculpture, drawing, and printmaking. Design is a field that involves the creation of functional, aesthetically pleasing products and environments, including topics such as graphic design, fashion design, and interior design",
@@ -269,6 +318,7 @@ export const MAJORS_LIST = {
       "Sculpture/Drawing/Painting",
     ],
     skills: ["Creativity", "Empathy", "Computer software skills"],
+    careers: ["Design", "Art", "Product Management"],
     key: "visual-arts-and-design",
   },
 };
