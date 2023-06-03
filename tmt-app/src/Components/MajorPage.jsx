@@ -5,16 +5,28 @@ import {
   Card,
   List,
   ListItemText,
+  ListItemIcon,
 } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { MAJORS_LIST } from "../utils/constants";
 import Breadcrumb from "./Breadcrumb";
+import BobaIcon from "../Images/icons/boba.svg";
+import { Link } from "@mui/material";
 
 function MajorPage() {
   const params = useParams();
   const data = MAJORS_LIST[params.major];
-
+  const resources = [
+    {
+      name: "BobaTalks Resource Hub",
+      link: "https://bobatalks.com/resources/",
+    },
+    {
+      name: "BobaTalks Discord Server",
+      link: "https://discord.com/invite/bobatalks",
+    },
+  ];
   let sectionInfo = [
     {
       title: `What is ${
@@ -61,7 +73,12 @@ function MajorPage() {
         {data.name} (Major)
       </Typography>
 
-      <Grid container spacing={4} sx={{ paddingX: "1rem" }}>
+      <Grid
+        container
+        spacing={4}
+        justifyContent="center"
+        sx={{ paddingX: "1rem" }}
+      >
         {sectionInfo.map((item, index) => {
           return (
             <Grid item key={index} xs={12} md={6}>
@@ -103,6 +120,51 @@ function MajorPage() {
             </Grid>
           );
         })}
+        <Grid item xs={12} md={6}>
+          <Card
+            sx={{
+              boxShadow: "none",
+              backgroundColor: "Avacado.main",
+              height: "100%",
+              boxSizing: "border-box",
+            }}
+          >
+            <Typography variant="h3" sx={{ paddingBottom: "1.5rem" }}>
+              Any extra resources?
+            </Typography>
+            <Typography variant="body">
+              <List>
+                {resources.map((resource, index) => {
+                  return (
+                    <Container
+                      key={`${resource.name}-${index}`}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        margin: "0.75rem 0",
+                      }}
+                    >
+                      <ListItemIcon>
+                        <img src={BobaIcon} alt="Boba Icon" />
+                      </ListItemIcon>
+                      <Link
+                        href={resource.link}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        sx={{
+                          color: "Boba.main",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        <Typography variant="body">{resource.name}</Typography>
+                      </Link>
+                    </Container>
+                  );
+                })}
+              </List>
+            </Typography>
+          </Card>
+        </Grid>
       </Grid>
     </Container>
   );
