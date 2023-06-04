@@ -57,7 +57,7 @@ function MajorCareerList() {
           Careers
         </Typography>
         <Fragment>
-          {CAREERS_LIST.map((item) => (
+          {Object.values(CAREERS_LIST).map((item) => (
             <div
               key={item.id}
               style={{
