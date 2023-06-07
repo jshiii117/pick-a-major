@@ -138,7 +138,7 @@ function Home() {
             underline="none"
             aria-label="Learn more about other different majors"
             component={RouterLink}
-            to="/quiz/1"
+            to="/quiz/classes"
           >
             <PrimaryBtn sx={{ color: "#FFFFFF" }}>
               <Typography variant="h3">Take the Quiz</Typography>

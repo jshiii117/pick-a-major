@@ -12,8 +12,11 @@ import {
 function Quiz() {
   const { step } = useParams();
 
-  const datasets = { 1: CAREERS_CARDS_PLACEHOLDERS, 2: SOFT_SKILL_LIST };
-  const data = datasets[step] || datasets[1];
+  const dataSets = {
+    classes: CAREERS_CARDS_PLACEHOLDERS,
+    skills: SOFT_SKILL_LIST,
+  };
+  const data = dataSets[step] || dataSets["classes"];
 
   return (
     <Container sx={{ width: "100%" }}>
@@ -31,13 +34,13 @@ function Quiz() {
 
 function Text({ step }) {
   const textContent = {
-    1: {
+    classes: {
       title1: "Let's order some boba! Pick your base(s).",
       title2: "What university classes sound interesting to you?",
       subtitle: "Select more than 3.",
       bobaBot: "5 is the maximum.",
     },
-    2: {
+    skills: {
       title1: "Pick your toppings and add-ons.",
       title2: "What skills would you like to use in a career?",
       subtitle: "Select more than one.",
@@ -45,7 +48,7 @@ function Text({ step }) {
     },
   };
 
-  const content = textContent[step] || textContent["1"];
+  const content = textContent[step] || textContent["classes"];
 
   return (
     <Grid
