@@ -1,7 +1,16 @@
 import React from "react";
+import { Container } from "@mui/material";
+import QuizStepper from "./Stepper";
 
 function Receipt() {
-  return <>Receipt Page</>;
+  return (
+    <>
+      <Container sx={{ my: "3rem" }}>
+        <QuizStepper />
+      </Container>
+      Receipt Page
+    </>
+  );
 }
 
 export default Receipt;

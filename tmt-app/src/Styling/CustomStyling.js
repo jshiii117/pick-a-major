@@ -1,6 +1,6 @@
 import { styled, Button, Container, createTheme } from "@mui/material";
 import { createBreakpoints } from "@mui/system";
-import "@fontsource/poppins";
+// import "@fontsource/poppins";
 
 const breakpoints = createBreakpoints({});
 
