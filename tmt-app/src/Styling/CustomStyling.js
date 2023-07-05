@@ -1,6 +1,6 @@
 import { styled, Button, Container, createTheme } from "@mui/material";
 import { createBreakpoints } from "@mui/system";
-// import "@fontsource/poppins";
+import "@fontsource/poppins";
 
 const breakpoints = createBreakpoints({});
 
@@ -44,6 +44,9 @@ export const CustomTheme = createTheme({
     },
     Avacado: {
       main: "#F0F6E2",
+    },
+    Text: {
+      main: "#1B1D2E",
     },
   },
   typography: {

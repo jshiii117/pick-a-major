@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { CustomTheme } from "../Styling/CustomStyling";
 import QuestionCard from "./QuestionCard";
 import BobaBot from "./BobaBot";
@@ -8,7 +8,7 @@ import {
   CAREERS_CARDS_PLACEHOLDERS,
   SOFT_SKILL_LIST,
 } from "../utils/constants";
-import QuizStepper from "./Stepper";
+import QuizStepper from "./QuizStepper";
 
 function Quiz() {
   const { step } = useParams();
@@ -53,9 +53,9 @@ function Text({ step }) {
 
   return (
     <>
-      <Container sx={{ my: "3rem" }}>
+      <Box sx={{ my: "3rem" }}>
         <QuizStepper />
-      </Container>
+      </Box>
       <Grid
         container
         direction="row"
