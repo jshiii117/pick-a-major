@@ -9,14 +9,16 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { MAJORS_LIST } from "../utils/constants";
+import { CAREERS_AND_MAJORS } from "../utils/constants";
 import Breadcrumb from "./Breadcrumb";
 import BobaIcon from "../Images/icons/boba.svg";
 import { Link } from "@mui/material";
+import a from "indefinite";
 
-function MajorPage() {
+function InfoLinkPage() {
   const params = useParams();
-  const data = MAJORS_LIST[params.major];
+  const { type, typeId } = params;
+
   const resources = [
     {
       name: "BobaTalks Resource Hub",
@@ -26,41 +28,70 @@ function MajorPage() {
       name: "BobaTalks Discord Server",
       link: "https://discord.com/invite/bobatalks",
     },
+    ...(type === "careers" && typeId
+      ? [
+          {
+            name: "Career Information via Zippia",
+            link: CAREERS_AND_MAJORS[type][typeId].link,
+          },
+        ]
+      : []),
   ];
-  let sectionInfo = [
-    {
-      title: `What is ${
-        ["a", "e", "i", "o", "u"].includes(data.name[0].toLowerCase())
-          ? "an "
-          : "a "
-      }
-      ${data.name} Major?`,
-      color: "BobaBeige.main",
-      info: data.desc,
-    },
-    {
-      title: "Classes",
-      color: "BobaPink.main",
-      info: data.classes,
-    },
-    {
-      title: `What skills do those in ${data.name} have?`,
-      color: "Lavender.main",
-      info: data.skills,
-    },
-    {
-      title: "Careers",
-      color: "BobaBeige.main",
-      info: data.careers,
-    },
-  ];
+
+  const cards = {
+    majors: [
+      {
+        title: `What is ${a(CAREERS_AND_MAJORS[type][typeId].name)} major?`,
+        color: "BobaBeige.main",
+        info: CAREERS_AND_MAJORS[type][typeId].desc,
+      },
+      {
+        title: "Classes",
+        color: "BobaPink.main",
+        info: CAREERS_AND_MAJORS[type][typeId].classes,
+      },
+      {
+        title: `What skills do those in ${CAREERS_AND_MAJORS[type][typeId].name} have?`,
+        color: "Lavender.main",
+        info: CAREERS_AND_MAJORS[type][typeId].skills,
+      },
+      {
+        title: "Careers",
+        color: "BobaBeige.main",
+        info: CAREERS_AND_MAJORS[type][typeId].careers,
+      },
+    ],
+    careers: [
+      {
+        title: `What is ${a(CAREERS_AND_MAJORS[type][typeId].name)} career?`,
+        color: "BobaBeige.main",
+        info: CAREERS_AND_MAJORS[type][typeId].desc,
+      },
+      {
+        title: "Related majors",
+        color: "BobaPink.main",
+        info: CAREERS_AND_MAJORS[type][typeId].majors,
+      },
+      {
+        title: `What skills do those in ${CAREERS_AND_MAJORS[type][typeId].name} have?`,
+        color: "Lavender.main",
+        info: CAREERS_AND_MAJORS[type][typeId].skills,
+      },
+    ],
+  };
+
+  const currentInfo = CAREERS_AND_MAJORS[type][typeId];
 
   return (
     <Container sx={{ minWidth: "70%" }}>
       <Breadcrumb
         breadcrumbs={[
           { url: "/", label: "Home" },
-          { label: `${data.name} (Major)` },
+          {
+            label: `${currentInfo.name} ${
+              type === "majors" ? "(Major)" : "(Career)"
+            }`,
+          },
         ]}
       />
       <Typography
@@ -70,7 +101,7 @@ function MajorPage() {
           textAlign: "center",
         }}
       >
-        {data.name} (Major)
+        {currentInfo.name} {type === "majors" ? "(Major)" : "(Career)"}
       </Typography>
 
       <Grid
@@ -79,7 +110,7 @@ function MajorPage() {
         justifyContent="center"
         sx={{ paddingX: "1rem" }}
       >
-        {sectionInfo.map((item, index) => {
+        {cards[type].map((item, index) => {
           return (
             <Grid item key={index} xs={12} md={6}>
               <Card
@@ -102,12 +133,29 @@ function MajorPage() {
                       }}
                     >
                       {item.info.map((item, index) => {
-                        return (
+                        return typeof item === "string" ? (
                           <ListItemText
-                            key={`${item.name}-${index}`}
+                            key={`${CAREERS_AND_MAJORS[type][typeId].name}-${index}`}
                             sx={{ display: "list-item" }}
                           >
                             <Typography variant="body">{item}</Typography>
+                          </ListItemText>
+                        ) : (
+                          <ListItemText
+                            key={`${item.label}-${index}`}
+                            sx={{ display: "list-item" }}
+                          >
+                            <Link
+                              href={item.url}
+                              sx={{
+                                color: "Boba.main",
+                                textDecoration: "underline",
+                              }}
+                            >
+                              <Typography variant="body">
+                                {item.label}
+                              </Typography>
+                            </Link>
                           </ListItemText>
                         );
                       })}
@@ -124,7 +172,7 @@ function MajorPage() {
           <Card
             sx={{
               boxShadow: "none",
-              backgroundColor: "Avacado.main",
+              backgroundColor: "Avocado.main",
               height: "100%",
               boxSizing: "border-box",
             }}
@@ -170,4 +218,4 @@ function MajorPage() {
   );
 }
 
-export default MajorPage;
+export default InfoLinkPage;
