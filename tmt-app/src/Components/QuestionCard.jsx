@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { styled, Typography, Box } from "@mui/material";
-import { CustomTheme } from "../Styling/CustomStyling";
+import { Box, styled, Typography } from '@mui/material';
+import React, { useState } from 'react';
+
+import { CustomTheme } from '../Styling/CustomStyling';
 
 const QuestionCard = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,18 +20,18 @@ const QuestionCard = ({ item }) => {
   };
 
   const sx = {
-    alignItems: "center",
-    borderRadius: "36px",
-    boxShadow: "6px 6px 16px rgba(0, 0, 0, 0.16)",
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.5rem",
-    height: "152px",
-    justifyContent: "center",
-    margin: "0.6rem",
-    width: "240px",
-    textAlign: "center",
-    transition: "all 0.3s ease-in-out",
+    alignItems: 'center',
+    borderRadius: '36px',
+    boxShadow: '6px 6px 16px rgba(0, 0, 0, 0.16)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.5rem',
+    height: '152px',
+    justifyContent: 'center',
+    margin: '0.6rem',
+    width: '240px',
+    textAlign: 'center',
+    transition: 'all 0.3s ease-in-out',
   };
 
   const StyledBox = styled(Box)(({ isSelected }) => ({
@@ -43,9 +44,9 @@ const QuestionCard = ({ item }) => {
         : CustomTheme.palette.BobaHighlight.main
     }`,
     ...(!isSelected && {
-      "&:hover": {
+      '&:hover': {
         border: `12px solid ${CustomTheme.palette.RedBean.main}`,
-        background: "white",
+        background: 'white',
       },
     }),
   }));
@@ -67,7 +68,7 @@ const QuestionCard = ({ item }) => {
       ) : (
         <>
           <Box component="img" src={item.icon} alt={`${item.title} icon`} />
-          <Typography variant="CustomHeading3" sx={{ color: "white" }}>
+          <Typography variant="CustomHeading3" sx={{ color: 'white' }}>
             {item.title}
           </Typography>
         </>

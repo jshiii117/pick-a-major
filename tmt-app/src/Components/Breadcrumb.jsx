@@ -1,14 +1,15 @@
-import React from "react";
-import { Breadcrumbs, Typography } from "@mui/material";
-import ForwardArrow from "../Images/Forward.png";
-import { Link } from "react-router-dom";
+import { Breadcrumbs, Typography } from '@mui/material';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import ForwardArrow from '../Images/Forward.png';
 
 function Breadcrumb({ breadcrumbs }) {
   return (
     <Breadcrumbs
       separator={
         <img
-          style={{ width: "24px", margin: "0" }}
+          style={{ width: '24px', margin: '0' }}
           src={ForwardArrow}
           alt="ForwardArrow"
         />
@@ -16,8 +17,8 @@ function Breadcrumb({ breadcrumbs }) {
       aria-label="breadcrumb"
       sx={{
         marginX: {
-          xs: "1rem",
-          md: "4rem",
+          xs: '1rem',
+          md: '4rem',
         },
       }}
     >
@@ -29,13 +30,13 @@ function Breadcrumb({ breadcrumbs }) {
             to={breadcrumb.url}
             variant="h6"
             sx={{
-              color: "BobaHighlight.main",
+              color: 'BobaHighlight.main',
               marginRight: {
-                xs: "0px",
-                sm: "8px",
-                md: "16px",
+                xs: '0px',
+                sm: '8px',
+                md: '16px',
               },
-              textDecoration: "none",
+              textDecoration: 'none',
             }}
           >
             {breadcrumb.label}
@@ -45,11 +46,11 @@ function Breadcrumb({ breadcrumbs }) {
             key={index}
             variant="h6"
             sx={{
-              color: "BobaHighlight.main",
+              color: 'BobaHighlight.main',
               marginLeft: {
-                xs: "0px",
-                sm: "8px",
-                md: "16px",
+                xs: '0px',
+                sm: '8px',
+                md: '16px',
               },
             }}
           >
