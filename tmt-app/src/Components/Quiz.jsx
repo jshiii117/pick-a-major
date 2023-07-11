@@ -53,9 +53,7 @@ function Text({ step }) {
 
   return (
     <>
-      <Box sx={{ my: "3rem" }}>
-        <QuizStepper />
-      </Box>
+      <QuizStepper />
       <Grid
         container
         direction="row"

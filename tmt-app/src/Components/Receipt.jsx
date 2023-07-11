@@ -5,9 +5,7 @@ import QuizStepper from "./QuizStepper";
 function Receipt() {
   return (
     <>
-      <Container sx={{ my: "3rem" }}>
-        <QuizStepper />
-      </Container>
+      <QuizStepper />
       Receipt Page
     </>
   );
