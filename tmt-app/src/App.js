@@ -9,6 +9,7 @@ import InfoLinkPage from './Components/InfoLinkPage';
 import Quiz from './Components/Quiz';
 import Receipt from './Components/Receipt';
 import ResultsPage from './Components/ResultsPage';
+import ScrollToTopButton from './Components/ScrollToTopButton';
 import { CustomTheme } from './Styling/CustomStyling.js';
 
 const router = createBrowserRouter([
@@ -39,6 +40,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={CustomTheme}>
         <RouterProvider router={router} />
+        <ScrollToTopButton />
       </ThemeProvider>
     </div>
   );
