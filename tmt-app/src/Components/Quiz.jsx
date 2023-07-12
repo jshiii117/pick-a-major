@@ -1,14 +1,15 @@
-import { Container, Grid, Typography } from "@mui/material";
-import React from "react";
-import { useParams } from "react-router-dom";
+import { Container, Grid, Typography } from '@mui/material';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import { CustomTheme } from "../Styling/CustomStyling";
+import { CustomTheme } from '../Styling/CustomStyling';
 import {
   CAREERS_CARDS_PLACEHOLDERS,
   SOFT_SKILL_LIST,
-} from "../utils/constants";
-import BobaBot from "./BobaBot";
-import QuestionCard from "./QuestionCard";
+} from '../utils/constants';
+import BobaBot from './BobaBot';
+import QuestionCard from './QuestionCard';
+import QuizStepper from './QuizStepper';
 
 function Quiz() {
   const { step } = useParams();
@@ -17,12 +18,13 @@ function Quiz() {
     classes: CAREERS_CARDS_PLACEHOLDERS,
     skills: SOFT_SKILL_LIST,
   };
-  const data = dataSets[step] || dataSets["classes"];
+  const data = dataSets[step] || dataSets['classes'];
 
   return (
-    <Container sx={{ width: "100%" }}>
+    <Container sx={{ width: '100%' }}>
+      <QuizStepper />
       <Text step={step} />
-      <Grid container justifyContent={{ md: "center", lg: "flex-start" }}>
+      <Grid container justifyContent={{ md: 'center', lg: 'flex-start' }}>
         {data.map((item) => (
           <Grid item key={item.title}>
             <QuestionCard item={item} />
@@ -37,19 +39,19 @@ function Text({ step }) {
   const textContent = {
     classes: {
       title1: "Let's order some boba! Pick your base(s).",
-      title2: "What university classes sound interesting to you?",
-      subtitle: "Select more than 3.",
-      bobaBot: "5 is the maximum.",
+      title2: 'What university classes sound interesting to you?',
+      subtitle: 'Select more than 3.',
+      bobaBot: '5 is the maximum.',
     },
     skills: {
-      title1: "Pick your toppings and add-ons.",
-      title2: "What skills would you like to use in a career?",
-      subtitle: "Select more than one.",
-      bobaBot: "6 is the maximum.",
+      title1: 'Pick your toppings and add-ons.',
+      title2: 'What skills would you like to use in a career?',
+      subtitle: 'Select more than one.',
+      bobaBot: '6 is the maximum.',
     },
   };
 
-  const content = textContent[step] || textContent["classes"];
+  const content = textContent[step] || textContent['classes'];
 
   return (
     <Grid
@@ -60,9 +62,9 @@ function Text({ step }) {
       alignItems="center"
       paddingX={5}
       sx={{
-        "@media (max-width: 1000px)": {
-          justifyContent: "center",
-          textAlign: "center",
+        '@media (max-width: 1000px)': {
+          justifyContent: 'center',
+          textAlign: 'center',
         },
       }}
     >

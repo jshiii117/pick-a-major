@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+
+import QuizStepper from './QuizStepper';
 
 function Receipt() {
   return (
