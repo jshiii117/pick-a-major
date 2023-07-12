@@ -1,14 +1,14 @@
+import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Box, Container, Grid, Typography } from "@mui/material";
+
 import { CustomTheme } from "../Styling/CustomStyling";
-import QuestionCard from "./QuestionCard";
-import BobaBot from "./BobaBot";
 import {
   CAREERS_CARDS_PLACEHOLDERS,
   SOFT_SKILL_LIST,
 } from "../utils/constants";
-import QuizStepper from "./QuizStepper";
+import BobaBot from "./BobaBot";
+import QuestionCard from "./QuestionCard";
 
 function Quiz() {
   const { step } = useParams();
@@ -52,39 +52,36 @@ function Text({ step }) {
   const content = textContent[step] || textContent["classes"];
 
   return (
-    <>
-      <QuizStepper />
-      <Grid
-        container
-        direction="row"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        paddingX={5}
-        sx={{
-          "@media (max-width: 1000px)": {
-            justifyContent: "center",
-            textAlign: "center",
-          },
-        }}
-      >
-        <Grid item>
-          <Grid container direction="column" display="flex">
-            <Typography variant="h3" mb={3}>
-              {content.title1}
-            </Typography>
-            <Typography variant="h3">{content.title2}</Typography>
-            <Typography variant="h5" color={CustomTheme.palette.ThaiTea.main}>
-              {content.subtitle}
-            </Typography>
-            <div style={{ height: 40 }} />
-          </Grid>
-        </Grid>
-        <Grid item>
-          <BobaBot text={content.bobaBot} />
+    <Grid
+      container
+      direction="row"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      paddingX={5}
+      sx={{
+        "@media (max-width: 1000px)": {
+          justifyContent: "center",
+          textAlign: "center",
+        },
+      }}
+    >
+      <Grid item>
+        <Grid container direction="column" display="flex">
+          <Typography variant="h3" mb={3}>
+            {content.title1}
+          </Typography>
+          <Typography variant="h3">{content.title2}</Typography>
+          <Typography variant="h5" color={CustomTheme.palette.ThaiTea.main}>
+            {content.subtitle}
+          </Typography>
+          <div style={{ height: 40 }} />
         </Grid>
       </Grid>
-    </>
+      <Grid item>
+        <BobaBot text={content.bobaBot} />
+      </Grid>
+    </Grid>
   );
 }
 

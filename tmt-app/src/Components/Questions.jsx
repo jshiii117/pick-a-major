@@ -1,7 +1,8 @@
-import React from "react";
-import { Container, Grid } from "@mui/material";
-import QuestionCard from "./QuestionCard";
-import { CAREERS_CARDS_PLACEHOLDERS } from "../utils/constants";
+import { Container, Grid } from '@mui/material';
+import React from 'react';
+
+import { CAREERS_CARDS_PLACEHOLDERS } from '../utils/constants';
+import QuestionCard from './QuestionCard';
 
 function Questions() {
   return (

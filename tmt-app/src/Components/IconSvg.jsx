@@ -1,5 +1,6 @@
-import React from "react";
-import TopicIcon from "../Images/icons/spriteSheet.svg";
+import React from 'react';
+
+import TopicIcon from '../Images/icons/spriteSheet.svg';
 
 function IconSvg({ topic, size, color }) {
   return (

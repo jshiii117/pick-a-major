@@ -1,25 +1,26 @@
-import React from "react";
-import { Grid, Typography, Hidden } from "@mui/material";
-import { FlexContainer } from "../Styling/CustomStyling.js";
-import ResultCardsContainer from "./ResultCardsContainer.jsx";
-import BobaBot from "./BobaBot.jsx";
+import { Grid, Hidden, Typography } from '@mui/material';
+import React from 'react';
+
+import { FlexContainer } from '../Styling/CustomStyling.js';
+import BobaBot from './BobaBot.jsx';
+import ResultCardsContainer from './ResultCardsContainer.jsx';
 
 function ResultsPage() {
   return (
     <Grid
       container
       sx={{
-        paddingTop: "7.5rem",
-        minHeight: "100vh",
-        width: "100%",
+        paddingTop: '7.5rem',
+        minHeight: '100vh',
+        width: '100%',
         paddingX: {
-          xs: "0",
-          sm: "0",
-          md: "5rem",
+          xs: '0',
+          sm: '0',
+          md: '5rem',
         },
         flexDirection: {
-          xs: "column",
-          md: "row",
+          xs: 'column',
+          md: 'row',
         },
       }}
     >
@@ -30,20 +31,20 @@ function ResultsPage() {
         md={8}
         lg={6}
         sx={{
-          position: "relative",
-          margin: "0 auto",
+          position: 'relative',
+          margin: '0 auto',
         }}
       >
         <FlexContainer
           sx={{
-            marginX: "0",
-            paddingTop: "2rem",
+            marginX: '0',
+            paddingTop: '2rem',
             flexDirection: {
-              xs: "column",
-              sm: "column",
-              md: "row",
+              xs: 'column',
+              sm: 'column',
+              md: 'row',
             },
-            justifyContent: "flex-start",
+            justifyContent: 'flex-start',
           }}
         >
           <Typography variant="h2">Results</Typography>
@@ -51,9 +52,9 @@ function ResultsPage() {
             variant="h5"
             sx={{
               marginLeft: {
-                xs: "0",
-                sm: "0",
-                md: "3rem",
+                xs: '0',
+                sm: '0',
+                md: '3rem',
               },
             }}
           >
@@ -63,7 +64,7 @@ function ResultsPage() {
         <Typography
           variant="h4"
           style={{
-            margin: "5rem 0 3rem 0",
+            margin: '5rem 0 3rem 0',
           }}
         >
           Quiz Results
@@ -78,8 +79,8 @@ function ResultsPage() {
           md={4}
           lg={5}
           sx={{
-            paddingLeft: "3rem",
-            marginTop: "9.5rem",
+            paddingLeft: '3rem',
+            marginTop: '9.5rem',
           }}
         >
           <BobaBot text="Screenshot your results! They are lost after leaving this page." />

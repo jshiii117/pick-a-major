@@ -1,38 +1,35 @@
-import React from "react";
-import "./App.css";
-import Home from "./Components/Home";
-import { CustomTheme } from "./Styling/CustomStyling.js";
-import { ThemeProvider } from "@mui/material";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ResultsPage from "./Components/ResultsPage";
-import CareerPage from "./Components/CareerPage";
-import MajorPage from "./Components/MajorPage";
-import Quiz from "./Components/Quiz";
-import Receipt from "./Components/Receipt";
+import './App.css';
+
+import { ThemeProvider } from '@mui/material';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import Home from './Components/Home';
+import InfoLinkPage from './Components/InfoLinkPage';
+import Quiz from './Components/Quiz';
+import Receipt from './Components/Receipt';
+import ResultsPage from './Components/ResultsPage';
+import { CustomTheme } from './Styling/CustomStyling.js';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
   },
   {
-    path: "/results",
+    path: '/results',
     element: <ResultsPage />,
   },
   {
-    path: "/majors/:major",
-    element: <MajorPage />,
+    path: '/:type/:typeId',
+    element: <InfoLinkPage />,
   },
   {
-    path: "/careers/:career",
-    element: <CareerPage />,
-  },
-  {
-    path: "/quiz/:step",
+    path: '/quiz/:step',
     element: <Quiz />,
   },
   {
-    path: "/receipt",
+    path: '/receipt',
     element: <Receipt />,
   },
 ]);
