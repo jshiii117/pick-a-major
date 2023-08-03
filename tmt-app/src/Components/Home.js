@@ -167,7 +167,7 @@ function Home() {
           marginY: '5rem',
           padding: '3rem 1rem 0 1rem',
           position: 'relative',
-          zIndex: '1500',
+          zIndex: '1050',
           minWidth: '100%',
           flexDirection: 'column',
           alignItems: 'flex-start',

@@ -6,31 +6,43 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Home from './Components/Home';
 import InfoLinkPage from './Components/InfoLinkPage';
+import NavBarWrapper from './Components/NavBarWrapper';
 import Quiz from './Components/Quiz';
 import Receipt from './Components/Receipt';
 import ResultsPage from './Components/ResultsPage';
+import Team from './Components/Team';
 import { CustomTheme } from './Styling/CustomStyling.js';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/results',
-    element: <ResultsPage />,
-  },
-  {
-    path: '/:type/:typeId',
-    element: <InfoLinkPage />,
-  },
-  {
-    path: '/quiz/:step',
-    element: <Quiz />,
-  },
-  {
-    path: '/receipt',
-    element: <Receipt />,
+    element: <NavBarWrapper />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/results',
+        element: <ResultsPage />,
+      },
+      {
+        path: '/:type/:typeId',
+        element: <InfoLinkPage />,
+      },
+      {
+        path: '/quiz/:step',
+        element: <Quiz />,
+      },
+      {
+        path: '/receipt',
+        element: <Receipt />,
+      },
+      {
+        path: '/team',
+        element: <Team />,
+      },
+    ],
   },
 ]);
 
