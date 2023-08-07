@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Home from './Components/Home';
 import InfoLinkPage from './Components/InfoLinkPage';
-import NavBarWrapper from './Components/NavBarWrapper';
+import NavBar from './Components/NavBar';
 import Quiz from './Components/Quiz';
 import Receipt from './Components/Receipt';
 import ResultsPage from './Components/ResultsPage';
@@ -16,7 +16,7 @@ import { CustomTheme } from './Styling/CustomStyling.js';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <NavBarWrapper />,
+    element: <NavBar />,
     children: [
       {
         path: '/',
