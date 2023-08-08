@@ -45,6 +45,9 @@ function ScrollToTopButton() {
             right: 20,
             width: 40,
             zIndex: 1600,
+            '&:hover': {
+              backgroundColor: theme.palette.ThaiTea.main,
+            },
           })}
         >
           <ArrowUpwardRoundedIcon />
