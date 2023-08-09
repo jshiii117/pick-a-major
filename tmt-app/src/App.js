@@ -1,46 +1,46 @@
-import "./App.css";
+import './App.css';
 
-import { ThemeProvider } from "@mui/material";
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from '@mui/material';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Home from "./Components/Home";
-import InfoLinkPage from "./Components/InfoLinkPage";
-import NavBar from "./Components/NavBar";
-import Quiz from "./Components/Quiz";
-import Receipt from "./Components/Receipt";
-import ResultsPage from "./Components/ResultsPage";
-import Team from "./Components/Team";
-import ScrollToTopButton from "./Components/ScrollToTopButton";
-import { CustomTheme } from "./Styling/CustomStyling.js";
+import Home from './Components/Home';
+import InfoLinkPage from './Components/InfoLinkPage';
+import NavBar from './Components/NavBar';
+import Quiz from './Components/Quiz';
+import Receipt from './Components/Receipt';
+import ResultsPage from './Components/ResultsPage';
+import Team from './Components/Team';
+import ScrollToTopButton from './Components/ScrollToTopButton';
+import { CustomTheme } from './Styling/CustomStyling.js';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <NavBar />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/results",
+        path: '/results',
         element: <ResultsPage />,
       },
       {
-        path: "/:type/:typeId",
+        path: '/:type/:typeId',
         element: <InfoLinkPage />,
       },
       {
-        path: "/quiz/:step",
+        path: '/quiz/:step',
         element: <Quiz />,
       },
       {
-        path: "/receipt",
+        path: '/receipt',
         element: <Receipt />,
       },
       {
-        path: "/team",
+        path: '/team',
         element: <Team />,
       },
     ],
