@@ -10,8 +10,8 @@ import NavBar from './Components/NavBar';
 import Quiz from './Components/Quiz';
 import Receipt from './Components/Receipt';
 import ResultsPage from './Components/ResultsPage';
-import Team from './Components/Team';
 import ScrollToTopButton from './Components/ScrollToTopButton';
+import Team from './Components/Team';
 import { CustomTheme } from './Styling/CustomStyling.js';
 
 const router = createBrowserRouter([
