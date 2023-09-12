@@ -3,18 +3,16 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { CustomTheme } from '../Styling/CustomStyling';
-import {
-  CAREERS_CARDS_PLACEHOLDERS,
-  SOFT_SKILL_LIST,
-} from '../utils/constants';
+import { CLASS_SUBJECT_LIST, SOFT_SKILL_LIST } from '../utils/constants';
 import BobaBot from './BobaBot';
 import QuestionCard from './QuestionCard';
+import QuizButtonContainer from './QuizButtonContainer';
 
 function Quiz() {
   const { step } = useParams();
 
   const dataSets = {
-    classes: CAREERS_CARDS_PLACEHOLDERS,
+    classes: CLASS_SUBJECT_LIST,
     skills: SOFT_SKILL_LIST,
   };
   const data = dataSets[step] || dataSets['classes'];
@@ -22,13 +20,14 @@ function Quiz() {
   return (
     <Container sx={{ width: '100%' }}>
       <Text step={step} />
-      <Grid container justifyContent={{ md: 'center', lg: 'flex-start' }}>
+      <Grid container justifyContent={{ xs: 'center', lg: 'flex-start' }}>
         {data.map((item) => (
           <Grid item key={item.title}>
             <QuestionCard item={item} />
           </Grid>
         ))}
       </Grid>
+      <QuizButtonContainer step={step} />
     </Container>
   );
 }

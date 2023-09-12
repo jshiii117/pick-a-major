@@ -1,4 +1,3 @@
-import AnatomyIcon from '../Images/icons/anatomy.svg';
 export const CAREERS_AND_MAJORS = {
   careers: {
     'accounting-finance': {
@@ -634,146 +633,166 @@ export const CLASS_SUBJECT_LIST = [
     id: 0,
     name: 'Anatomy',
     desc: 'Structure, function, and organization of living organisms, including humans, animals, and plants, at the level of cells, tissues, organs, and systems',
+    key: 'anatomy',
   },
   {
     id: 1,
     name: 'Biology',
     desc: 'Science of life and living organisms, including their structure, function, growth, evolution, distribution, and taxonomy',
+    key: 'biology',
   },
   {
     id: 2,
     name: 'Chemistry',
     desc: 'Composition, properties, and behavior of matter as well as chemical reactions and interactions',
+    key: 'chemistry',
   },
   {
     id: 3,
     name: 'Computer Science',
     desc: 'Computer simulation, programming languages, microcontrollers, and web development',
+    key: 'computer-science',
   },
   {
     id: 4,
     name: 'Digital Media',
     desc: 'Media content that is created, distributed, and consumed using digital technologies and electronic devices',
+    key: 'digital-media',
   },
   {
     id: 5,
     name: 'Economics',
     desc: 'How individuals, businesses, governments, and societies make choices about allocation and scarcity',
+    key: 'economics',
   },
   {
     id: 6,
     name: 'English Literature',
     desc: 'Texts from around the world written in the English language and creative writing',
+    key: 'english-literature',
   },
   {
     id: 7,
-    name: 'Entrepreneurships',
+    name: 'Entrepreneurship',
     desc: 'How to start, manage, and grow a business venture through leadership, innovation, financial management, and strategic planning',
+    key: 'entrepreneurship',
   },
   {
     id: 8,
     name: 'Foreign Languages',
     desc: 'Learning vocabulary, grammar, pronunciation, and cultural context for non-English languages',
+    key: 'foreign-languages',
   },
   {
     id: 9,
     name: 'Home Economics',
     desc: 'Personal and family finances, nutrition, food preparation, textiles, and apparel',
+    key: 'home-economics',
   },
   {
     id: 10,
     name: 'Law/Politics',
     desc: 'Principles, theories, and practices of law and governance, including legal systems, constitutional law, international law, and public policy',
+    key: 'law-politics',
   },
   {
     id: 11,
     name: 'Math',
     desc: 'Algebra, geometry, trigonometry, pre-calculus, and calculus',
+    key: 'math',
   },
   {
     id: 12,
     name: 'Performing Arts',
     desc: 'Dance, music, theatre, and film',
+    key: 'performing-arts',
   },
   {
     id: 13,
     name: 'Philosophy',
     desc: 'Fundamental questions about existence, knowledge, values, reason, mind, and language',
+    key: 'philosophy',
   },
   {
     id: 14,
     name: 'Physical Education',
     desc: 'Physical activity, fitness, sports, and games',
+    key: 'physical-education',
   },
   {
     id: 15,
     name: 'Physics',
     desc: 'Fundamental laws and properties of matter, energy, space, and time, and their interactions and relationships with each other',
+    key: 'physics',
   },
   {
     id: 16,
     name: 'Psychology',
     desc: 'Human behavior and mental processes, including cognition, emotion, perception, development, personality, social behavior, and mental health',
+    key: 'psychology',
   },
   {
     id: 17,
     name: 'Robotics',
     desc: 'Design, construction, programming, and application of robots and autonomous systems',
+    key: 'robotics',
   },
   {
     id: 18,
     name: 'Social Studies',
     desc: 'Societies, cultures, human behavior, and relationships',
+    key: 'social-studies',
   },
   {
     id: 19,
     name: 'Visual Arts',
     desc: 'Painting, drawing, ceramics, photography, video, filmmaking, design, crafts',
+    key: 'visual-arts',
   },
 ];
 
 export const SOFT_SKILL_LIST = [
   {
     id: 0,
-    title: 'Public Speaking',
-    info: 'Public speaking is the ability to deliver a spoken message to a live audience in an effective and engaging manner',
-    icon: AnatomyIcon,
+    name: 'Public Speaking',
+    desc: 'Public speaking is the ability to deliver a spoken message to a live audience in an effective and engaging manner',
+    key: 'public-speaking',
   },
   {
     id: 1,
-    title: 'Written Communication',
-    info: 'Written communication is the act of creating and conveying a message through the written word',
-    icon: AnatomyIcon,
+    name: 'Written Communication',
+    desc: 'Written communication is the act of creating and conveying a message through the written word',
+    key: 'written-communication',
   },
   {
     id: 2,
-    title: 'Analytical',
-    info: 'Analytical skills refer to the ability to gather, process, and make decisions based on data and information',
-    icon: AnatomyIcon,
+    name: 'Analytical',
+    desc: 'Analytical skills refer to the ability to gather, process, and make decisions based on data and information',
+    key: 'analytical',
   },
   {
     id: 3,
-    title: 'Creative Thinking',
-    info: 'Creative thinking is the ability to generate and implement novel and original ideas or solutions to problems',
-    icon: AnatomyIcon,
+    name: 'Creative Thinking',
+    desc: 'Creative thinking is the ability to generate and implement novel and original ideas or solutions to problems',
+    key: 'creative-thinking',
   },
   {
     id: 4,
-    title: 'Organization',
-    info: "Time management and organization is the ability to prioritize tasks and effectively manage one's use of time to achieve goals and increase efficiency",
-    icon: AnatomyIcon,
+    name: 'Organization',
+    desc: "Time management and organization is the ability to prioritize tasks and effectively manage one's use of time to achieve goals and increase efficiency",
+    key: 'organization',
   },
   {
     id: 5,
-    title: 'Emotional Intelligence',
-    info: "Emotional intelligence is the capacity to be aware of, control, and express one's emotions, as well as the emotions of others, and use this information to guide thoughts and actions",
-    icon: AnatomyIcon,
+    name: 'Emotional Intelligence',
+    desc: "Emotional intelligence is the capacity to be aware of, control, and express one's emotions, as well as the emotions of others, and use this information to guide thoughts and actions",
+    key: 'emotional-intelligence',
   },
   {
     id: 6,
-    title: 'Tech Proficiency',
-    info: 'Tech proficiency refers to the ability to effectively use technology, demonstrate technical knowledge, and solve problems innovatively in various technical domains',
-    icon: AnatomyIcon,
+    name: 'Tech Proficiency',
+    desc: 'Tech proficiency refers to the ability to effectively use technology, demonstrate technical knowledge, and solve problems innovatively in various technical domains',
+    key: 'tech-proficiency',
   },
 ];
 
@@ -842,68 +861,5 @@ export const FIELD_OF_STUDY_LIST = [
     id: 10,
     name: 'Visual Arts & Design',
     major: ['Media Art', 'Graphic Design', 'UX/UI Design', 'HCI (Duplicate)'],
-  },
-];
-
-export const CAREERS_CARDS_PLACEHOLDERS = [
-  {
-    title: 'Anatomy',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'History',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Geography',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Math',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Computer Science',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'English',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Political Science',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Philosophy',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Home Studies',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Nursing',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Keyboard',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
-  },
-  {
-    title: 'Woodwork',
-    info: 'Information for Anatomy.',
-    icon: AnatomyIcon,
   },
 ];
