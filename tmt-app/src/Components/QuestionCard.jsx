@@ -2,6 +2,7 @@ import { Box, styled, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 import { CustomTheme } from '../Styling/CustomStyling';
+import IconSvg from './IconSvg.jsx';
 
 const QuestionCard = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -54,7 +55,7 @@ const QuestionCard = ({ item }) => {
   return (
     <StyledBox
       isSelected={isSelected}
-      key={item.title}
+      key={item.name}
       sx={sx}
       onClick={handleClick}
       onMouseOver={handleHover}
@@ -62,14 +63,14 @@ const QuestionCard = ({ item }) => {
     >
       {isHovered && !isSelected ? (
         <>
-          <Typography variant="CustomHeading3">{item.title}</Typography>
-          <Typography variant="CustomBody">{item.info}</Typography>
+          <Typography variant="CustomHeading3">{item.name}</Typography>
+          <Typography variant="CustomBody">{item.desc}</Typography>
         </>
       ) : (
         <>
-          <Box component="img" src={item.icon} alt={`${item.title} icon`} />
+          <IconSvg topic={item.key} size="48" color="white" />
           <Typography variant="CustomHeading3" sx={{ color: 'white' }}>
-            {item.title}
+            {item.name}
           </Typography>
         </>
       )}

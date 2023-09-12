@@ -161,6 +161,65 @@ export const CustomTheme = createTheme({
         disableGutters: true,
       },
     },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'quizButton' },
+          style: {
+            color: '#FFFFFF',
+            fontFamily: 'Poppins',
+            fontWeight: 600,
+            fontSize: '16px',
+            lineHeight: '24px',
+            border: '3px solid',
+            borderColor: 'white',
+            borderRadius: '4px',
+            whiteSpace: 'nowrap',
+            width: '145px',
+            padding: '1rem 1.75rem',
+            [breakpoints.up('sm')]: {
+              width: '201px',
+              fontSize: '20px',
+              lineHeight: '30px',
+            },
+            [breakpoints.up('md')]: {
+              padding: '1.25rem 4.25rem',
+              width: '281px',
+            },
+            [breakpoints.up('lg')]: {
+              width: '309px',
+              fontSize: '24px',
+              lineHeight: '36px',
+            },
+            '&:hover': {
+              backgroundColor: '#732C2C',
+            },
+            '&:active': {
+              backgroundColor: '#E0A878',
+            },
+          },
+        },
+        {
+          props: { variant: 'quizButton', color: 'primary' },
+          style: {
+            backgroundColor: '#73956F',
+          },
+        },
+        {
+          props: { variant: 'quizButton', color: 'secondary' },
+          style: {
+            backgroundColor: '#FFFFFF',
+            color: '#73956F',
+            border: '3px solid',
+            borderColor: '#73956F',
+            '&:hover': {
+              color: 'white',
+              border: '3px solid #732C2C',
+            },
+          },
+        },
+      ],
+    },
     MuiToggleButton: {
       variants: [
         {
@@ -200,11 +259,14 @@ export const CustomTheme = createTheme({
 export const PrimaryBtn = styled(Button)({
   color: '#FFFFFF',
   backgroundColor: '#73956F',
-  borderRadius: '8px',
+  borderRadius: '4px',
   border: 0,
   padding: '1rem 2rem',
   '&:hover': {
     backgroundColor: '#732C2C',
+  },
+  '&:active': {
+    backgroundColor: '#E0A878',
   },
   [breakpoints.up('md')]: {
     padding: '1rem 3rem',
